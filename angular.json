@@ -20,7 +20,7 @@
             "customWebpackConfig": {
               "path": "./webpack.config.js"
             },
-            "outputPath": "dist/anti-drone",
+            "outputPath": "dist/anti-drone/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -108,6 +108,61 @@
             ],
             "scripts": []
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/anti-drone/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json",
+            "inlineStyleLanguage": "scss"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media"
+            },
+            "development": {
+              "outputHashing": "media",
+              "optimization": true,
+              "sourceMap": false,
+              "extractLicenses": true,
+              "vendorChunk": false
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "anti-drone:build:development",
+              "serverTarget": "anti-drone:server:development"
+            },
+            "production": {
+              "browserTarget": "anti-drone:build:production",
+              "serverTarget": "anti-drone:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "anti-drone:build:production",
+              "serverTarget": "anti-drone:server:production"
+            },
+            "development": {
+              "browserTarget": "anti-drone:build:development",
+              "serverTarget": "anti-drone:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

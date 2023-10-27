@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 
 import { MatIconModule} from '@angular/material/icon';
 import { HomeModule } from '@app/home/home.module';
-
 import { HttpClientModule } from '@angular/common/http';
 import { NgOptimizedImage } from '@angular/common';
 
@@ -15,7 +14,7 @@ import { NgOptimizedImage } from '@angular/common';
     AppComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     MatIconModule,
     HomeModule,
