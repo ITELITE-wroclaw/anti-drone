@@ -32,6 +32,7 @@ export class DetailsComponent implements AfterViewInit{
     .forEach((e, id) => {
       gsap.fromTo(e, {opacity: 0}, {opacity: 1}).delay(id + 1)
     });
+
   }
 
   hideDetails(): void

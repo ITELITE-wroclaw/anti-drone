@@ -1,7 +1,6 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@use '@angular/material' as mat;
+@use "@angular/material" as mat;
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -24,13 +23,15 @@ $nav-list-margin-top: calc(70px - 43.5px);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$anti-drone-theme: mat.define-light-theme((
-  color: (
-    primary: $anti-drone-primary,
-    accent: $anti-drone-accent,
-    warn: $anti-drone-warn,
+$anti-drone-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $anti-drone-primary,
+      accent: $anti-drone-accent,
+      warn: $anti-drone-warn,
+    ),
   )
-));
+);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -38,29 +39,24 @@ $anti-drone-theme: mat.define-light-theme((
 @include mat.all-component-themes($anti-drone-theme);
 
 /* You can add global styles to this file, and also import other style files */
-*{
+* {
   margin: 0;
-  padding: 0 ;
+  padding: 0;
   margin-bottom: 0;
 
-  &:not(mat-icon)
-  {
+  &:not(mat-icon) {
     font-family: Akshar !important;
   }
-  
 }
 
-html, body { height: 100%; overflow-x: hidden;}
-body { 
-  font-family: Roboto, "Helvetica Neue", sans-serif; 
-  background-color: $background;
-  font-display: swap;
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+  background-color: $background !important;
 }
 
-nav{
-
-  background: $background;
-  background: linear-gradient(0deg, transparent 13%, $background 18%);
+nav {
   padding-top: $nav-padding;
 
   padding-right: 10%;
@@ -68,69 +64,71 @@ nav{
 
   position: relative;
 
-  .logo{
-      margin-left: 103px;
+  .logo {
+    margin-left: 103px;
+    cursor: pointer;
   }
 
-  div{
+  div {
+    display: flex;
+    height: fit-content;
+
+    margin-top: $nav-list-margin-top;
+
+    ul {
       display: flex;
-      height: fit-content;
+      list-style-type: none;
+      width: fit-content;
+      height: 18px;
+      flex-shrink: 0;
+      line-height: 18px;
+      gap: 60px;
+      margin-bottom: 0;
+      margin-top: 6px;
+      padding-left: 0;
 
-      margin-top: $nav-list-margin-top;
-
-      ul{
-          display: flex;
-          list-style-type: none;
-          width: fit-content;
-          height: 18px;
-          flex-shrink: 0;
-          line-height: 18px;
-          gap: 60px;
-          margin-bottom: 0;
-          margin-top: 6px;
-          padding-left: 0;
-  
-          li{
-              color: #000;
-              font-family: 'Akshar', sans-serif;
-              font-size: 16px;
-              font-weight: 500;
-              line-height: normal;
-              position: relative;
-              z-index: 12;
-          }
+      li {
+        color: #000;
+        font-family: "Akshar", sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: normal;
+        position: relative;
+        z-index: 12;
+        cursor: pointer;
       }
+    }
 
-      .line{
-          margin-left: 44px;
-          margin-right: 42px;
-          height: 18px;
-          margin-top: 6px;
-          width: 2px;
-      }
+    .line {
+      margin-left: 44px;
+      margin-right: 42px;
+      height: 18px;
+      margin-top: 6px;
+      width: 2px;
+    }
 
-      .sign{
-          margin-left: 41px;
-      }
+    .sign {
+      margin-left: 41px;
+    }
   }
 
-  .menu{
-      display: none;
-      color: rgb(248, 190, 57);
+  .menu {
+    display: none;
+    color: rgb(248, 190, 57);
 
+    width: 32px;
+    height: 32px;
+
+    mat-icon {
       width: 32px;
       height: 32px;
 
-      mat-icon{
-          width: 32px;
-          height: 32px;
-
-          font-size: 30px;
-      }
+      font-size: 30px;
+    }
   }
 }
 
-.container-fluid{
+.container-fluid {
   min-height: 100vh;
 
   padding-top: 92px;
@@ -138,16 +136,13 @@ nav{
   position: relative;
   padding-bottom: 120px;
 
-  &:nth-of-type(1)
-  {
+  &:nth-of-type(1) {
     min-height: calc(100vh - (43.5px + 79px));
   }
-
 }
 
-
 @media (max-width: 1000px) {
-  .container-fluid{
+  .container-fluid {
     padding-left: 0;
   }
 }

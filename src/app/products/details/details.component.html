@@ -82,23 +82,24 @@
             <h4>Mechanical Properties</h4>
 
             <div class="mech_data">
-              Length: {{detailsChild.mechanical_properties.length}}cm
+              Length: {{detailsChild.mechanical_properties.length[0]}}cm / {{detailsChild.mechanical_properties.length[1]}}inch
             </div>
 
-            <div class="mech_data" *ngIf="isNumber(detailsChild.mechanical_properties.width); else arr">
-              Width: {{detailsChild.mechanical_properties.width}}cm
+            <div *ngIf="isNumber(detailsChild.mechanical_properties.width[0]); else arr">
+              Width: {{detailsChild.mechanical_properties.width[0]}}cm / {{detailsChild.mechanical_properties.width[1]}}inch
             </div>
             <ng-template #arr>
-              <div>Width_1: {{detailsChild.mechanical_properties.width[0]}}cm</div>
-              <div>Width_2: {{detailsChild.mechanical_properties.width[1]}}cm</div>
+              <div>Width_1: {{detailsChild.mechanical_properties.width[0][0]}}cm / {{detailsChild.mechanical_properties.width[1][0]}}inch</div>
+              <div>Width_2: {{detailsChild.mechanical_properties.width[0][1]}}cm / {{detailsChild.mechanical_properties.width[1][1]}}inch</div>
+      
             </ng-template>
 
-            <div class="mech_data">
-              Weight: {{detailsChild.mechanical_properties.weight}} kg
+            <div *ngIf="detailsChild.mechanical_properties.height">
+              Height: {{detailsChild.mechanical_properties.height[0]}}cm / {{detailsChild.mechanical_properties.height[1]}}inch
             </div>
-
-            <div class="mech_data">
-              Color: {{detailsChild.mechanical_properties.color}}
+            
+            <div>
+              Weight: {{detailsChild.mechanical_properties.weight[0]}}kg / {{detailsChild.mechanical_properties.weight[1]}}pounds
             </div>
 
             <div class="mech_data">

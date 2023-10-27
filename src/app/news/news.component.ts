@@ -12,6 +12,20 @@ export class NewsComponent implements AfterViewInit{
 
   constructor()
   {
+    
+  }
+
+  news: News[] = newsObj;
+  paragraphText: string = "";
+
+  @ViewChild("paragraph")
+  paragraphElement: ElementRef;
+
+  @ViewChild("line")
+  lineElement: ElementRef;
+
+  ngAfterViewInit(): void
+  {
     gsap.fromTo(
       ".title",
       {
@@ -37,19 +51,7 @@ export class NewsComponent implements AfterViewInit{
       }
     )
     .delay(.44);
-  }
-
-  news: News[] = newsObj;
-  paragraphText: string = "";
-
-  @ViewChild("paragraph")
-  paragraphElement: ElementRef;
-
-  @ViewChild("line")
-  lineElement: ElementRef;
-
-  ngAfterViewInit(): void
-  {
+    
     this.writeEffect();
   }
 

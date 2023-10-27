@@ -153,7 +153,8 @@ $content_text_margin_top: 30px;
         gap: 33px;
 
         div {
-          width: 148px;
+          min-width: 148px;
+          padding: 0 5px;
           height: 37px;
           background-color: rgb(221, 223, 226);
           border-radius: 10px;
@@ -228,14 +229,13 @@ $content_text_margin_top: 30px;
   position: absolute;
   top: 590px;
   left: 5%;
-
   font-size: 300px;
   font-weight: 600;
   line-height: 40.02%;
   width: 1200px;
   height: 155px;
-  color: $background;
-  text-shadow: 0px 0px 2px rgb(212, 207, 207);
+  color: #f9f9f9;
+  text-shadow: 0px 0px 2px rgb(165 165 165);
   z-index: 0;
 }
 
@@ -348,13 +348,13 @@ $img_sizes: 785px 452px, 770px 330px 670px 290px;
 @media (max-width: 750px) {
   .content {
     .particular_details {
-        width: 86%;
+      width: 86%;
 
-      .mech_data{
+      .mech_data {
         margin: auto;
       }
     }
-   }
+  }
 }
 
 @media (max-width: 650px) {
@@ -374,8 +374,8 @@ $img_sizes: 785px 452px, 770px 330px 670px 290px;
     margin-top: 0px;
     padding: 0px 20px 0px 20px;
 
-    p{
-        width: 65%;
+    p {
+      width: 65%;
     }
 
     h3 {

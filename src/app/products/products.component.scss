@@ -35,6 +35,7 @@ $list: 440, 380, 430, 390;
         transition: box-shadow .4s ease-in;
         transform: rotate3d(1, 0, 0, 55deg);
         border-radius: 15px;
+        cursor: pointer;
 
         .cover{
             position: absolute;
@@ -60,10 +61,10 @@ $list: 440, 380, 430, 390;
 
         img{
            position: absolute;
-            top: -130px;
-            left: 25px;
-            height: 455px;
-            width: 305px;
+            top: -215px;
+            left: 15px;
+            height: 515px;
+            width: 340px;
         }
         
         .base{

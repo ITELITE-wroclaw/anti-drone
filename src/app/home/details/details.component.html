@@ -80,20 +80,24 @@
       <h4>Mechanical Properties</h4>
 
       <div>
-        Length: {{properties.mechanical_properties.length}}cm
+        Length: {{properties.mechanical_properties.length[0]}}cm / {{properties.mechanical_properties.length[1]}}inch
       </div>
 
-      <div *ngIf="isNumber(properties.mechanical_properties.width); else arr">
-        Width: {{properties.mechanical_properties.width}}cm
+      <div *ngIf="isNumber(properties.mechanical_properties.width[0]); else arr">
+        Width: {{properties.mechanical_properties.width[0]}}cm / {{properties.mechanical_properties.width[1]}}inch
       </div>
       <ng-template #arr>
-        <div>Width_1: {{properties.mechanical_properties.width[0]}}cm</div>
-        <div>Width_2: {{properties.mechanical_properties.width[1]}}cm</div>
+        <div>Width_1: {{properties.mechanical_properties.width[0][0]}}cm / {{properties.mechanical_properties.width[1][0]}}inch</div>
+        <div>Width_2: {{properties.mechanical_properties.width[0][1]}}cm / {{properties.mechanical_properties.width[1][1]}}inch</div>
 
       </ng-template>
+
+      <div *ngIf="properties.mechanical_properties.height">
+        Height: {{properties.mechanical_properties.height[0]}}cm / {{properties.mechanical_properties.height[1]}}inch
+      </div>
       
       <div>
-        Weight: {{properties.mechanical_properties.weight}}kg
+        Weight: {{properties.mechanical_properties.weight[0]}}kg / {{properties.mechanical_properties.weight[1]}}pounds
       </div>
 
       <div>
