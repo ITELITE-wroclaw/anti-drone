@@ -5,10 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { MatIconModule} from '@angular/material/icon';
-import { HomeModule } from '@app/home/home.module';
+import { HomeModule } from './home/home.module';
 
 import { HttpClientModule } from '@angular/common/http';
 import { NgOptimizedImage } from '@angular/common';
+
+import { provideClientHydration } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,7 @@ import { NgOptimizedImage } from '@angular/common';
     HttpClientModule,
     NgOptimizedImage
   ],
-  providers: [],
+  providers: [provideClientHydration()],
   bootstrap: [AppComponent],
   exports: []
 })
