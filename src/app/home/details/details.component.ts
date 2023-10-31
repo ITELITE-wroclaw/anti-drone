@@ -1,7 +1,7 @@
 import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Input, Output, ViewChild } from '@angular/core';
 import { fromEvent } from 'rxjs/internal/observable/fromEvent';
 
-import { imagesPath } from '@app/path';
+import { imagesPath } from 'src/app/path';
 import { generalDetails, particularDetails } from '../detailsTypes';
 
 import { DetailsService } from './details.service';

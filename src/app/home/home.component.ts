@@ -2,12 +2,14 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  OnInit,
   ViewChild,
 } from '@angular/core';
 
 import { generalDetails } from './detailsTypes';
 import { HomeService } from './home.service';
 
+import { CacheService } from 'ng2-cache';
 import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
@@ -15,9 +17,10 @@ import { DeviceDetectorService } from 'ngx-device-detector';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements AfterViewInit {
+export class HomeComponent implements AfterViewInit, OnInit {
   constructor(
     public homeService: HomeService,
+    private cacheService: CacheService,
     private deviceDet: DeviceDetectorService
   ) {}
 
@@ -60,6 +63,56 @@ export class HomeComponent implements AfterViewInit {
 
   @ViewChild('write_line')
   writeLine: ElementRef;
+
+  ngOnInit(): void {
+
+    const images = [], 
+          result = this.cacheService.get('images'),
+          isMobile = this.deviceDet.isMobile()? "/mobile": "",
+          that = this;
+
+          let id: number = 0;
+
+    if (this.cacheService.get('images')) {
+      return this.images = result;
+    }
+
+    function getImage()
+    {
+      return new Promise((resolve) => {
+        fetch(
+          '/assets/images/home/content'+isMobile+'/content_' + Number(id + 1) + '.webp'
+        )
+        .then((img) => {
+          img.blob()
+          .then((blob: Blob | any) => {
+  
+            const read = new FileReader();
+            read.readAsDataURL(blob);
+  
+            read.onloadend = () => {
+
+              images.push(read.result);
+              if(id == Object.keys(that.details).length - 1) that.cacheService.set('images', images);
+
+              return resolve(true);
+            };
+            
+          });
+        });
+      })
+    }
+
+    async function loop()
+    {
+      await getImage();
+      
+      id++;
+      if(id < Object.keys(that.details).length) loop();
+    }
+
+    loop();
+  }
 
   async ngAfterViewInit(): Promise<void> {
     this.homeService.init(this.writeLine, this.elements);

@@ -1,4 +1,4 @@
-import { imagesPath } from '@app/path';
+import { imagesPath } from 'src/app/path';
 
 export const data = {
   0: {

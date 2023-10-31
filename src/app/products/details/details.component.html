@@ -1,5 +1,5 @@
 <nav class="nav flex justify-content-between">
-  <img class="logo" routerLink="/" ngSrc="./assets/images/logo.png" alt="logo" width="267" height="78" priority>
+  <img class="logo" routerLink="/" ngSrc="./assets/images/logo.png" alt="logo" width="auto" height="auto" priority>
 
   <div #nav_list class="nav-list">
     <ul>
@@ -74,7 +74,7 @@
             </div>
             
             <div class="antenna_image">
-              <img src="./assets/images/home/content/content_{{detailsChild.id}}.webp" width="430" height="auto" alt="Antenna image" priority>
+              <img ngSrc="./assets/images/home/content/content_{{detailsChild.id}}.webp" width="430" height="auto" alt="Antenna image" priority>
             </div>
           </div>
       
@@ -112,12 +112,12 @@
       
             <div>
               <h4>{{detailsChild.charts.header}}</h4>
-              <img src="{{detailsChild.charts[0]}}.webp" width="auto" height="auto" alt="Chart with realized gain." priority>
+              <img ngSrc="{{detailsChild.charts[0]}}.webp" width="auto" height="auto" alt="Chart with realized gain." priority>
             </div>
       
             <div *ngIf="detailsChild.charts[1]">
               <h4>{{detailsChild.charts.header}}</h4>
-              <img src="{{detailsChild.charts[1]}}.webp" width="auto" height="auto" alt="Chart with realized gain." priority>
+              <img ngSrc="{{detailsChild.charts[1]}}.webp" width="auto" height="auto" alt="Chart with realized gain." priority>
             </div>
             
           </div>
