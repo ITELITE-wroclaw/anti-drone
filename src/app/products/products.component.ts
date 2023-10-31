@@ -10,7 +10,7 @@ import { particularDetails } from '../home/detailsTypes';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.scss', '../../../node_modules/bootstrap/scss/bootstrap.scss'],
+  styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent {
 

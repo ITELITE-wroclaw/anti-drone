@@ -1,13 +1,12 @@
 const whitelister = require('purgecss-whitelister');
-const PurgecssPlugin = require('purgecss-webpack-plugin');
+const { PurgeCSSPlugin } = require('purgecss-webpack-plugin');
 
 const glob = require("glob");
 
 module.exports = {
 
   plugins: [
-
-    new PurgecssPlugin({
+    new PurgeCSSPlugin({
       keyframes: false,
       paths: glob.sync('src/**/*', {
         nodir: true

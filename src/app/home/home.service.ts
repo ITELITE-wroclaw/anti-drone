@@ -9,7 +9,6 @@ import { DeviceDetectorService } from 'ngx-device-detector';
 })
 export class HomeService {
 
-  
   constructor(private deviceService: DeviceDetectorService){}
   private topProperties = [];
 

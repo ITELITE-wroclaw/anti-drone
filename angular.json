@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "anti-drone": {
+    "ssr": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -15,12 +15,9 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-builders/custom-webpack:browser",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "customWebpackConfig": {
-              "path": "./webpack.config.js"
-            },
-            "outputPath": "dist/anti-drone/browser",
+            "outputPath": "dist/ssr/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -35,8 +32,7 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [],
-            "aot": true
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -44,48 +40,47 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumError": "1.2mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "7kb",
-                  "maximumError": "100kb"
+                  "maximumWarning": "2kb",
+                  "maximumError": "250kb"
                 }
               ],
               "outputHashing": "all"
             },
             "development": {
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
             }
           },
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "ngx-build-plus:dev-server",
+          "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "anti-drone:build:production"
+              "browserTarget": "ssr:build:production"
             },
             "development": {
-              "browserTarget": "anti-drone:build:development"
+              "browserTarget": "ssr:build:development"
             }
           },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          "builder": "ngx-build-plus:extract-i18n",
+          "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "anti-drone:build"
+            "browserTarget": "ssr:build"
           }
         },
         "test": {
-          "builder": "ngx-build-plus:karma",
+          "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "polyfills": [
               "zone.js",
@@ -98,13 +93,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "src/app/app.component.scss",
-              "src/app/details.scss",
-              "src/app/contact/contact.component.scss",
-              "src/app/home/home.component.scss",
-              "src/app/news/news.component.scss",
-              "src/app/products/products.component.scss"
+              "src/styles.scss"
             ],
             "scripts": []
           }
@@ -112,7 +101,7 @@
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "dist/anti-drone/server",
+            "outputPath": "dist/ssr/server",
             "main": "server.ts",
             "tsConfig": "tsconfig.server.json",
             "inlineStyleLanguage": "scss"
@@ -122,11 +111,11 @@
               "outputHashing": "media"
             },
             "development": {
-              "outputHashing": "media",
-              "optimization": true,
-              "sourceMap": false,
-              "extractLicenses": true,
-              "vendorChunk": false
+              "buildOptimizer": false,
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false,
+              "vendorChunk": true
             }
           },
           "defaultConfiguration": "production"
@@ -135,12 +124,12 @@
           "builder": "@nguniversal/builders:ssr-dev-server",
           "configurations": {
             "development": {
-              "browserTarget": "anti-drone:build:development",
-              "serverTarget": "anti-drone:server:development"
+              "browserTarget": "ssr:build:development",
+              "serverTarget": "ssr:server:development"
             },
             "production": {
-              "browserTarget": "anti-drone:build:production",
-              "serverTarget": "anti-drone:server:production"
+              "browserTarget": "ssr:build:production",
+              "serverTarget": "ssr:server:production"
             }
           },
           "defaultConfiguration": "development"
@@ -154,12 +143,12 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "anti-drone:build:production",
-              "serverTarget": "anti-drone:server:production"
+              "browserTarget": "ssr:build:production",
+              "serverTarget": "ssr:server:production"
             },
             "development": {
-              "browserTarget": "anti-drone:build:development",
-              "serverTarget": "anti-drone:server:development"
+              "browserTarget": "ssr:build:development",
+              "serverTarget": "ssr:server:development"
             }
           },
           "defaultConfiguration": "production"

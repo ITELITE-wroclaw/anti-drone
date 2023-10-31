@@ -8,7 +8,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { NgxResizeObserverModule } from 'ngx-resize-observer';
 
 import { HomeService } from './home.service';
-import { Ng2CacheModule } from 'ng2-cache';
 
 @NgModule({
   declarations: [
@@ -18,8 +17,7 @@ import { Ng2CacheModule } from 'ng2-cache';
   imports: [
     CommonModule,
     MatIconModule,
-    NgxResizeObserverModule,
-    Ng2CacheModule
+    NgxResizeObserverModule
   ],
   exports: [HomeComponent],
   providers: [HomeService]

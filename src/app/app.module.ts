@@ -6,8 +6,11 @@ import { AppComponent } from './app.component';
 
 import { MatIconModule} from '@angular/material/icon';
 import { HomeModule } from '@app/home/home.module';
+
 import { HttpClientModule } from '@angular/common/http';
 import { NgOptimizedImage } from '@angular/common';
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,8 @@ import { NgOptimizedImage } from '@angular/common';
     MatIconModule,
     HomeModule,
     HttpClientModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent],
