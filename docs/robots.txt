@@ -1,3 +1,3 @@
 User-agent: *
-Allow: /
+Allow: /#/news
 Sitemap: https://antidroneantennas.net/sitemap.xml
