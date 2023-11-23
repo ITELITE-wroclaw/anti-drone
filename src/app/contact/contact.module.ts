@@ -4,6 +4,9 @@ import { CommonModule } from '@angular/common';
 import { ContactComponent } from './contact.component';
 import { RouterModule, Routes } from '@angular/router';
 
+import { FormsModule } from '@angular/forms';
+import { NgxCaptchaModule } from 'ngx-captcha';
+
 const routes: Routes = [
   {
     path: '',
@@ -12,10 +15,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [],
+  declarations: [ContactComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    FormsModule,
+    RouterModule.forChild(routes),
+    NgxCaptchaModule
   ]
 })
 export class ContactModule { }

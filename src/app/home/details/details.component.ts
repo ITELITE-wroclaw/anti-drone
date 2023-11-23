@@ -1,7 +1,7 @@
-import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Input, Output, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { fromEvent } from 'rxjs/internal/observable/fromEvent';
 
-import { imagesPath } from 'src/app/path';
+import { imagesPath } from '@app/path';
 import { generalDetails, particularDetails } from '../detailsTypes';
 
 import { DetailsService } from './details.service';
@@ -11,16 +11,22 @@ import { DeviceDetectorService } from 'ngx-device-detector';
   selector: 'app-details',
   templateUrl: './details.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  styleUrls: ['../../details.scss']
+  styleUrls: ['../../details.scss'],
+  template: `<h2 rel="canonical" class="background_header">Antennas</h2>`
 })
 export class DetailsComponent implements AfterViewInit{
 
-  constructor(private changeDetRef: ChangeDetectorRef, private detailsService: DetailsService, private deviceDet: DeviceDetectorService){}
+  constructor(private changeDetRef: ChangeDetectorRef,
+              private detailsService: DetailsService, 
+              private deviceDet: DeviceDetectorService
+              ){}
 
   protected img;
+  sizes: number[][] = [[440, 478], [440, 478], [430, 347], [390, 314]];
 
-  @Input() details:{value: generalDetails, id: number} | null = null;
-  @Input() set images (img){
+  @Input() details :{value: generalDetails, id: number} | null = null;
+  @Input() set images (img)
+  {
     this.img = img;
   };
 

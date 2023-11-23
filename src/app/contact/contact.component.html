@@ -1,20 +1,72 @@
-<div class="contact">
-    
-    <h2>CONTACT</h2>
-    
-    <h4>ITELITE</h4>
-    <h5>Poland</h5>
+<img src="./assets/images/continents.png" alt="Image of world">
 
-    <p>Terenowa 42</p>
-    <p>Wroclaw</p>
-    
-    <p>T: +48 713 230 180</p>
-    <p>email: sales@itelite.net</p>
+<form #contactForm="ngForm" (ngSubmit)="send(contactForm)">
 
-    <h4>ITELITE ANTENNAS Inc</h4>
-    <h5>America</h5>
-    <p>10631 NW 122nd Street</p>
-    <p>Medley, Florida 33178</p>
-    <p>T: +1.305.677.9293</p>
-    <p>email: salesusa@itelite.net</p>
+    <div class="sender">
+        <div class="senderDetails">
+            
+            <div>
+                <label [ngClass]=" getter('name')? 'static': '' " for="Name">Name</label>
+                <input #name ngModel type="text" autocomplete="name" name="name" (input)="setter('name', name.value)">
+            </div>
+            
+        </div>
+
+        <div class="senderDetails">
+            
+            <div>
+                <label [ngClass]=" getter('email')? 'static': '' " for="Email">Email</label>
+                <input #email ngModel type="email" autocomplete="email" name="email" (input)="setter('email', email.value)">
+            </div>
+            
+        </div>
+
+        <div class="senderDetails">
+
+            <div>
+                <label [ngClass]=" getter('company')? 'static': '' ">Company</label>
+                <input #company ngModel type="text" autocomplete="additional-name" name="company" (input)="setter('company', company.value)">
+            </div>
+            
+        </div>
+    </div>
+
+    <textarea #area ngModel name="message" cols="31" rows="13" (keydown)="checkKey($event, area)"></textarea>
+
+    <ngx-recaptcha2 #captchaElem
+    ngModel
+    name="recaptcha"
+    siteKey="6LdxSBgpAAAAADeT9iTchQK0pmENafLb83Id5v8r"
+    (success)="check($event)"
+    [useGlobalDomain]="false"
+    name="recaptcha">
+  </ngx-recaptcha2>
+
+  <button class="send" type="submit" >Send</button>
+</form>
+
+<div itemprop="location" itemscope itemtype="https://schema.org/Place" class="contact">
+    
+    <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+        <h2>CONTACT</h2>
+    
+        <h4>ITELITE</h4>
+        <h5 itemprop="addressRegion">Poland</h5>
+    
+        <p itemprop="streetAddress">Terenowa 42</p>
+        <p itemprop="addressLocality">Wroclaw</p>
+        
+        <p itemprop="telephone">T: +48 713 230 180</p>
+    </div>
+    
+    <div>
+        <h4>ITELITE ANTENNAS Inc</h4>
+        <h5 itemprop="addressRegion">America</h5>
+
+        <p itemprop="streetAddress">10631 NW 122nd Street</p>
+        <p itemprop="addressLocality">Medley, Florida 33178</p>
+        
+        <p itemprop="telephone">T: +1.305.677.9293</p>
+    </div>
+    
 </div>

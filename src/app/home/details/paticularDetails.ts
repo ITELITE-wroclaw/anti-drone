@@ -1,4 +1,4 @@
-import { imagesPath } from 'src/app/path';
+import { imagesPath } from '@app/path';
 
 export const data = {
   0: {
@@ -7,7 +7,7 @@ export const data = {
             The system is divided into 4 quadrants, each quadrant containing a vertically polarized antenna, covering 433MHz to 6GHz. `,
 
     specification: {
-      'Frequency range': [
+      'Frequency': [
         {
           P1: '433MHz – 1.3GHz',
           P2: '2.4GHz – 2.5GHz $ 5.1GHz – 5.9GHz',
@@ -47,8 +47,7 @@ export const data = {
 
     charts: {
       0: imagesPath + 'home/content/charts/' + 'chart_1_1',
-      1: imagesPath + 'home/content/charts/' + 'chart_1_2',
-      header: 'PAT0413G5',
+      1: imagesPath + 'home/content/charts/' + 'chart_1_2'
     },
   },
   1: {
@@ -57,7 +56,7 @@ export const data = {
             The system is divided into 4 quadrants, each quadrant containing a vertically polarized antenna, covering 433MHz to 6GHz.`,
 
     specification: {
-      'Frequency range': '400MHz – 6GHz',
+      'Frequency': '400MHz – 6GHz',
       Gain: '8-9 dBi',
       'Beamwidth Azimuth': '80 deg (@ -3dB)',
       'Beamwidth Elevation': '60 deg (@ -3 dB)',
@@ -77,8 +76,7 @@ export const data = {
     },
 
     charts: {
-      0: imagesPath + 'home/content/charts/' + 'chart_2',
-      header: 'PAT0413G5',
+      0: imagesPath + 'home/content/charts/' + 'chart_2'
     },
   },
   2: {
@@ -87,7 +85,7 @@ export const data = {
         The polarization is dual linear and by rotating the antenna you can set the polarization to H&V or slant polarization.`,
 
     specification: {
-      'Frequency range': '500MHz – 6GHz',
+      'Frequency': '500MHz – 6GHz',
       Gain: '7 - 12 dBi',
       'Beamwidth Azimuth': '50 - 60 deg (@ -3dB)',
       'Beamwidth Elevation': '20 - 70 deg (@ -3 dB)',
@@ -106,8 +104,7 @@ export const data = {
     },
 
     charts: {
-      0: imagesPath + 'home/content/charts/' + 'chart_3',
-      header: 'PAT0413G5',
+      0: imagesPath + 'home/content/charts/' + 'chart_3'
     },
   },
   3: {
@@ -117,7 +114,7 @@ export const data = {
         The polarization is linear and by rotating the antenna you can set the polarization to H, V or slant polarization. `,
 
     specification: {
-      'Frequency range': '500MHz – 3GHz',
+      'Frequency': '500MHz – 3GHz',
       Gain: '10 dBi',
       'Beamwidth Azimuth': '80 deg (@ -3dB)',
       'Beamwidth Elevation': '50 deg (@ -3 dB)',
@@ -136,8 +133,7 @@ export const data = {
     },
 
     charts: {
-      0: imagesPath + 'home/content/charts/' + 'chart_4',
-      header: 'PAT0413G5',
+      0: imagesPath + 'home/content/charts/' + 'chart_4'
     },
   },
 };

@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,22 +10,21 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgOptimizedImage } from '@angular/common';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     MatIconModule,
     HomeModule,
     HttpClientModule,
     NgOptimizedImage,
-    NgbModule
+    NgbModule,
+    BrowserModule
   ],
-  providers: [],
-  bootstrap: [AppComponent],
-  exports: []
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

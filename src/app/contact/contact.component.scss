@@ -1,9 +1,86 @@
+
+img{
+    position: absolute;
+    filter: sepia() grayscale(1);
+}
+
+form{
+    position: relative;
+    z-index: 2;
+    padding: 23vh 25px 10vh 25px;
+
+    display: flex;
+    flex-direction: column;
+    width: min-content;
+    margin: auto;
+
+    .sender{
+        display: flex;
+        gap: 23px;
+
+        .senderDetails{
+            position: relative;
+
+            div{
+                background-color: rgb(255, 255, 255);
+
+                label, input{
+                    color: rgb(88, 88, 88);
+                    font-size: 18px;
+                }
+                
+                label{
+                    position: absolute;
+                    left: 5px;
+                    top: 0;
+                    transition: top .2s ease-in;
+                }
+
+                label.static{
+                    top: -25px !important;
+                }
+
+                input{
+                    outline: none;
+                    border: none;
+                    position: relative;
+                    background-color: transparent;
+                }
+
+                &:has(input:focus) label{
+                    top: -25px;
+                }
+               
+            }
+            
+        }
+    }
+
+    textarea{
+        margin-top: 20px;
+        border: none;
+        outline: none;
+        padding: 18px 24px;
+    }
+
+    ngx-recaptcha2, button{
+        margin-top: 15px;
+    }
+
+    button{
+        width: 20%;
+    }
+}
+
 .contact {
     position: relative;
     width: fit-content;
     margin: auto;
-    margin-top: 120px;
+    margin-top: 90px;
     padding-bottom: 70px;
+
+    display: flex;
+    gap: 105px;
 
     p {
         font-size: 21px;
@@ -38,5 +115,12 @@
         h2 {
             width: 100%;
         }
+    }
+}
+
+@media (max-width: 690px)
+{
+    .sender{
+        flex-wrap: wrap;
     }
 }

@@ -49,20 +49,48 @@ $anti-drone-theme: mat.define-light-theme(
   }
 }
 
+body{
+  padding-top: 130px;
+  position: relative;
+}
+
 html,
 body {
   height: 100%;
   overflow-x: hidden;
   background-color: $background !important;
+
+
+  h1{
+    text-align: center;
+    font-size: 70px;
+    font-weight: 500;
+    color: #221529;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: max-content;
+  }
 }
+
+
 
 nav {
   padding-top: $nav-padding;
+  background: $background;
 
   padding-right: 10%;
   flex-wrap: nowrap;
 
   position: relative;
+  position: fixed;
+
+  top: 0;
+  width: 100%;
+  z-index: 9;
+
+  padding-bottom: 12px;
 
   .logo {
     margin-left: 103px;
@@ -146,3 +174,17 @@ nav {
     padding-left: 0;
   }
 }
+
+@media (max-width: 800px) {
+  
+  html,
+body {
+
+  h1{
+    font-size: 7vw;
+  }
+}
+}
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';

@@ -2,13 +2,19 @@
 $background: rgba(246, 248, 251, 1);
 $content_text_margin_top: 30px;
 
-:host main{
-    font-family: Akshar;
+nav{
+    position: fixed; 
+    z-index: 9; 
+    
+    top: 0; 
+    width: calc( 100% - 17px); 
 
-    ::ng-deep app-products {
-        width: 100%;
-        display: block;
-    }
+    background: rgba(246, 248, 251, 1);
+}
+
+main{
+    position: relative;
+    overflow: hidden;
 }
 
 footer{
@@ -17,6 +23,8 @@ footer{
     min-height: 148px;
     background-color: #000000;
     color: white;
+    position: relative;
+    z-index: 4;
 
     img{
         height: min-content;

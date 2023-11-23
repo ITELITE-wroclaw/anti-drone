@@ -1,134 +1,191 @@
-<h2 class="background_header">Antennas</h2>
+<h2 rel="canonical" class="background_header">Antennas</h2>
 
-<div #content class="content content-{{details?.id + 1}}">
-
+<div #content class="content content-{{ details?.id + 1 }}">
   <div class="text">
-
-    <h3>
-      {{details?.value?.header}}
+    <h3 itemprop="name">
+      {{ details?.value?.header }}
     </h3>
 
     <div class="describe">
-      <p>
-        {{details?.value?.paragraph}}
+      <p itemprop="description">
+        {{ details?.value?.paragraph }}
       </p>
       <button #learnMore>Learn More</button>
     </div>
-
   </div>
 
   <div class="image">
-    <img src='{{img || imagesPath + details.value.img_num + ".webp"}}' alt="Antenna photo.">
+    <img
+      itemprop="image"
+      ngSrc="{{ img || imagesPath + details.value.img_num + '.webp' }}"
+      width="{{ sizes[details.id][0] }}"
+      height="{{ sizes[details.id][1] }}"
+      alt="Antenna photo."
+    />
   </div>
 
   <div *ngIf="properties" class="particular_details">
-
-    <div  class="properties description">
+    <div class="properties description">
       <h4>Description</h4>
-      <p>{{properties.description}}</p>
+      <p>{{ properties.description }}</p>
     </div>
 
-    <div  class="properties specification">
+    <div class="properties specification">
       <h4>Specification</h4>
-      <ul>
-        <li *ngIf="isString(properties.specification['Frequency range']); else frequency_arr">Frequency range: {{ properties.specification["Frequency range"] }}</li>
-        <ng-template #frequency_arr>
-          <p>Frequency range:</p>
-          <ul>
-            <li>{{properties.specification['Frequency range'][0]['P1']}}</li>
-            <li>{{properties.specification['Frequency range'][0]['P2']}}</li>
-          </ul>
-        </ng-template>
 
-        <li *ngIf="isString(properties.specification['Gain']); else gain_arr">Gain: {{ properties.specification["Gain"] }}</li>
-        <ng-template #gain_arr>
-          <p>Gain:</p>
-          <ul>
-            <li>{{properties.specification['Gain'][0]['P1']}}</li>
-            <li>{{properties.specification['Gain'][0]['P2']}}</li>
-          </ul>
-        </ng-template>
+      <table>
+        <tr>
+          <td>Frequency</td>
+          <td
+            *ngIf="
+              isString(properties.specification['Frequency']);
+              else frequency_arr
+            "
+          >
+            {{ properties.specification["Frequency"] }}
+          </td>
+          <ng-template #frequency_arr>
+            <td>
+              {{ properties.specification["Frequency"][0]["P1"] }}, 
+              {{ properties.specification["Frequency"][0]["P2"] }}
+            </td>
+          </ng-template>
+        </tr>
 
-        <li *ngIf="isString(properties.specification['Beamwidth Azimuth']); else azimuth_arr">Beamwidth Azimuth: {{ properties.specification["Beamwidth Azimuth"] }}</li>
-        <ng-template #azimuth_arr>
-          <p>Beamwidth Azimuth:</p>
-          <ul>
-            <li>{{properties.specification['Beamwidth Azimuth'][0]['P1']}}</li>
-            <li>{{properties.specification['Beamwidth Azimuth'][0]['P2']}}</li>
-          </ul>
-        </ng-template>
+        <tr>
+          <td>Gain</td>
+          <td *ngIf="isString(properties.specification['Gain']); else gain_arr">
+            {{ properties.specification["Gain"] }}
+          </td>
+          <ng-template #gain_arr>
+            <td>
+              {{ properties.specification["Gain"][0]["P1"] }}, 
+              {{ properties.specification["Gain"][0]["P2"] }}
+            </td>
+          </ng-template>
+        </tr>
 
-        <li *ngIf="isString(properties.specification['Beamwidth Elevation']); else elevation_arr">Beamwidth Elevation: {{ properties.specification["Beamwidth Elevation"] }}</li>
-        <ng-template #elevation_arr>
-          <p>Beamwidth Elevation:</p>
-          <ul>
-            <li>{{properties.specification['Beamwidth Elevation'][0]['P1']}}</li>
-            <li>{{properties.specification['Beamwidth Elevation'][0]['P2']}}</li>
-          </ul>
-        </ng-template>
+        <tr>
+          <td>Beamwidth Azimuth</td>
+          <td
+            *ngIf="
+              isString(properties.specification['Beamwidth Azimuth']);
+              else azimuth_arr
+            "
+          >
+            {{ properties.specification["Beamwidth Azimuth"] }}
+          </td>
+          <ng-template #azimuth_arr>
+            <td>
+              {{ properties.specification["Beamwidth Azimuth"][0]["P1"] }}, 
+              {{ properties.specification["Beamwidth Azimuth"][0]["P2"] }}
+            </td>
+          </ng-template>
+        </tr>
 
-        <li>VSWR: {{ properties.specification["VSWR"] }}</li>
-        <li>Impedance: {{ properties.specification["Impedance"] }}</li>
+        
+        <tr>
+          <td>Beamwidth Elevation</td>
+          <td *ngIf="
+            isString(properties.specification['Beamwidth Elevation']);
+            else elevation_arr
+          ">
+            {{ properties.specification["Beamwidth Elevation"] }}
+          </td>
 
-        <li>XPD (cross polarization discrimination): {{ properties.specification["XPD (cross polarization discrimination)"] }}</li>
-        <li>RF Interface: {{ properties.specification["RF Interface"] }}</li>
-      </ul>
+          <ng-template #elevation_arr>
+            <td>
+              {{ properties.specification["Beamwidth Elevation"][0]["P1"] }}, 
+              {{ properties.specification["Beamwidth Elevation"][0]["P2"] }}, 
+            </td>
+          </ng-template>
+
+        </tr>
+        <tr>
+          <td>VSWR</td>
+          <td>{{ properties.specification["VSWR"] }}</td>
+        </tr>
+        <tr>
+          <td>Impedance</td>
+          <td>{{ properties.specification["Impedance"] }}</td>
+        </tr>
+        <tr>
+          <td>XPD (cross polarization discrimination)</td>
+          <td>{{properties.specification["XPD (cross polarization discrimination)"]}}</td>
+        </tr>
+        <tr>
+          <td>RF Interface</td>
+          <td>{{ properties.specification["RF Interface"] }}</td>
+        </tr>
+      </table>
     </div>
 
-    <div  class="properties mechanical_properties">
-      
+    <div class="properties mechanical_properties">
       <h4>Mechanical Properties</h4>
 
       <div>
-        Length: {{properties.mechanical_properties.length[0]}}cm / {{properties.mechanical_properties.length[1]}}inch
+        Length: {{ properties.mechanical_properties.length[0] }}cm /
+        {{ properties.mechanical_properties.length[1] }}inch
       </div>
 
-      <div *ngIf="isNumber(properties.mechanical_properties.width[0]); else arr">
-        Width: {{properties.mechanical_properties.width[0]}}cm / {{properties.mechanical_properties.width[1]}}inch
+      <div
+        *ngIf="isNumber(properties.mechanical_properties.width[0]); else arr"
+      >
+        Width: {{ properties.mechanical_properties.width[0] }}cm /
+        {{ properties.mechanical_properties.width[1] }}inch
       </div>
       <ng-template #arr>
-        <div>Width_1: {{properties.mechanical_properties.width[0][0]}}cm / {{properties.mechanical_properties.width[1][0]}}inch</div>
-        <div>Width_2: {{properties.mechanical_properties.width[0][1]}}cm / {{properties.mechanical_properties.width[1][1]}}inch</div>
-
+        <div>
+          Width_1: {{ properties.mechanical_properties.width[0][0] }}cm /
+          {{ properties.mechanical_properties.width[1][0] }}inch
+        </div>
+        <div>
+          Width_2: {{ properties.mechanical_properties.width[0][1] }}cm /
+          {{ properties.mechanical_properties.width[1][1] }}inch
+        </div>
       </ng-template>
 
       <div *ngIf="properties.mechanical_properties.height">
-        Height: {{properties.mechanical_properties.height[0]}}cm / {{properties.mechanical_properties.height[1]}}inch
-      </div>
-      
-      <div>
-        Weight: {{properties.mechanical_properties.weight[0]}}kg / {{properties.mechanical_properties.weight[1]}}pounds
+        Height: {{ properties.mechanical_properties.height[0] }}cm /
+        {{ properties.mechanical_properties.height[1] }}inch
       </div>
 
       <div>
-        Color: {{properties.mechanical_properties.color}}
+        Weight: {{ properties.mechanical_properties.weight[0] }}kg /
+        {{ properties.mechanical_properties.weight[1] }}pounds
       </div>
 
-      <div>
-        Material: {{properties.mechanical_properties.material}}
-      </div>
+      <div>Color: {{ properties.mechanical_properties.color }}</div>
 
+      <div>Material: {{ properties.mechanical_properties.material }}</div>
     </div>
 
-    <div  class="properties charts">
-
+    <div class="properties charts">
       <div>
-        <h4>{{properties.charts.header}}</h4>
-        <img src="{{properties.charts[0]}}.webp" width="auto" height="auto" alt="Chart with realized gain." priority>
+        <img
+          itemprop="image"
+          ngSrc="{{ properties.charts[0] }}.webp"
+          width="650"
+          height="366"
+          alt="Chart with realized gain."
+          priority
+        />
       </div>
 
       <div *ngIf="properties.charts[1]">
-        <h4>{{properties.charts.header}}</h4>
-        <img src="{{properties.charts[1]}}.webp" width="auto" height="auto" alt="Chart with realized gain." priority>
+        <img
+          itemprop="image"
+          ngSrc="{{ properties.charts[1] }}.webp"
+          width="650"
+          height="366"
+          alt="Chart with realized gain."
+          priority
+        />
       </div>
-      
     </div>
 
     <mat-icon (click)="hideDetails()">close</mat-icon>
-
   </div>
-
 </div>
-
 
 <span *ngIf="details?.id != 3" class="line"></span>

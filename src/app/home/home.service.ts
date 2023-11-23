@@ -9,7 +9,6 @@ import { DeviceDetectorService } from 'ngx-device-detector';
 })
 export class HomeService {
 
-  
   constructor(private deviceService: DeviceDetectorService){}
   private topProperties = [];
 
@@ -20,10 +19,14 @@ export class HomeService {
 
     gsap.to(".machine_line", 
     {
-      text: {value: `One of the most cost effecting counter UAV’s solutions is jamming the Electro Magnetic signals that the device uses for data transmission and navigation.
-      An effective anti-drone solution should cover the spectrum between 433MHz up to 7.2GHz frequency bands.
-      ITELITE has some antenna systems that you can use for your anti-drone system that can handle more than 100W of input power.`},
-      duration: 14,
+      text: {
+        value: `In today's rapidly advancing technological landscape, the demand for high-quality and advanced counter-drone solutions is paramount. 
+                As Unmanned Aerial Vehicles (UAVs) or drones proliferate across various applications, securing the airspace to protect your privacy becomes of utmost importance.
+                At ITELITE Antennas, boasting over two decades of experience in manufacturing microwave antennas, we specialize in crafting high-quality and advanced counter-drone arrays. 
+                Our dedication is to provide you with the coverage and assurance you need in the face of evolving UAV threats. 
+                Whether you require a customized solution or a ready-to-go anti-drone antenna system, our products are designed to meet the highest standards of quality and performance.`
+      },
+      duration: 29,
       delay: 1,
       ease: "none"
     })

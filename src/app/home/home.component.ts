@@ -2,30 +2,42 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
-  OnInit,
   ViewChild,
 } from '@angular/core';
 
 import { generalDetails } from './detailsTypes';
 import { HomeService } from './home.service';
 
-import { CacheService } from 'ng2-cache';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
+  template: `<header>
+                <h1>ANTI DRONE SOLUTIONS</h1>
+             </header>`
 })
-export class HomeComponent implements AfterViewInit, OnInit {
+export class HomeComponent implements AfterViewInit {
   constructor(
     public homeService: HomeService,
-    private cacheService: CacheService,
-    private deviceDet: DeviceDetectorService
+    private deviceDet: DeviceDetectorService,
+    private metaTagService: Meta
   ) {}
 
   private elements: HTMLCollectionOf<Element> = document.getElementsByClassName('container-fluid');
   protected images: Blob[] = [];
+
+  ngOnInit(): void {
+    this.metaTagService.addTags([
+      {name: "keywords", content: "anti drone antennas, anti drone, anti drone antenna, counter drone antennas, drone jammers antennas, counter uav antennas, ant uav antennas, drone dome, airspace security, drone protection"},
+      { name: 'robots', content: 'index, follow' },
+      { name: 'author', content: 'Łukasz Trzepadłek' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { charset: 'UTF-8' }
+    ])
+  }
 
   details: { [key: number]: generalDetails} = {
     0: {
@@ -63,56 +75,6 @@ export class HomeComponent implements AfterViewInit, OnInit {
 
   @ViewChild('write_line')
   writeLine: ElementRef;
-
-  ngOnInit(): void {
-
-    const images = [], 
-          result = this.cacheService.get('images'),
-          isMobile = this.deviceDet.isMobile()? "/mobile": "",
-          that = this;
-
-          let id: number = 0;
-
-    if (this.cacheService.get('images')) {
-      return this.images = result;
-    }
-
-    function getImage()
-    {
-      return new Promise((resolve) => {
-        fetch(
-          '/assets/images/home/content'+isMobile+'/content_' + Number(id + 1) + '.webp'
-        )
-        .then((img) => {
-          img.blob()
-          .then((blob: Blob | any) => {
-  
-            const read = new FileReader();
-            read.readAsDataURL(blob);
-  
-            read.onloadend = () => {
-
-              images.push(read.result);
-              if(id == Object.keys(that.details).length - 1) that.cacheService.set('images', images);
-
-              return resolve(true);
-            };
-            
-          });
-        });
-      })
-    }
-
-    async function loop()
-    {
-      await getImage();
-      
-      id++;
-      if(id < Object.keys(that.details).length) loop();
-    }
-
-    loop();
-  }
 
   async ngAfterViewInit(): Promise<void> {
     this.homeService.init(this.writeLine, this.elements);
