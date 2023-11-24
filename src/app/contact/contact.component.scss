@@ -4,6 +4,29 @@ img{
     filter: sepia() grayscale(1);
 }
 
+#greetings{
+    display: none;
+}
+
+:host ::ng-deep .show{
+    display: flex !important;
+    flex-direction: column;
+    width: 500px;
+    height: 485px;
+    animation: show 0.8s ease-in;
+    margin: auto;
+    transform: translate(0px, 15%);
+
+    img{
+        margin: 20px auto;
+        position: relative;
+    }
+
+    h3, p{
+        text-align: center;
+    }
+}
+
 form{
     position: relative;
     z-index: 2;
@@ -120,6 +143,16 @@ form{
         margin-top: 44px;
     }
 }
+
+@keyframes show {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
 
 @media (max-width: 800px)
 {

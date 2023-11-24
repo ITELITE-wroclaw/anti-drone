@@ -4,6 +4,8 @@ import { Component, Directive, ElementRef, QueryList, Renderer2, ViewChild, View
 import { NgForm } from '@angular/forms';
 import { z } from 'zod';
 
+import { gsap } from 'gsap/gsap-core';
+
 @Directive({selector: 'form-property'})
 export class FormProperty {
   constructor(){
@@ -32,6 +34,8 @@ export class ContactComponent {
 
   captcha: string = '';
   ready: boolean = false;
+
+  sent: boolean = false;
 
   getter(data: string) {
     return this[`${data}`].length > 0;
@@ -63,7 +67,7 @@ export class ContactComponent {
     email: z.string().email(),
 
     company: z.string().min(2),
-    message: z.string().min(25),
+    message: z.string().min(5),
 
     recaptcha: z.string().min(10)
   });
@@ -71,17 +75,19 @@ export class ContactComponent {
   @ViewChild("area")
   area: ElementRef;
 
+  @ViewChild("form")
+  form: ElementRef;
+
   public async send(contactForm: NgForm): Promise<void> {
+
     const values = contactForm.value;
 
-    console.log()
     if (!this.formSchema.safeParse(values).success || this.captcha.length < 10) return;
-
-    
 
     let message = this.area.nativeElement.value.replaceAll("\n", "<br>");
     message = message.replaceAll("\t", '&nbsp;&nbsp;&nbsp;&nbsp;');
 
+    
     this.httpClient
       .post(
         'https://mail-service-4o2h.onrender.com',
@@ -96,8 +102,20 @@ export class ContactComponent {
         })
       )
       .subscribe((e: {success: boolean}) => {
-        e.success? [this.clean(), alert("E-mail has been sent.")]: alert("Somethink goes wrong, pleas try again later.");
+        e.success? emailHasBeenSent.call(this): alert("Somethink goes wrong, pleas try again later.");
       });
+
+      function emailHasBeenSent()
+    {
+      gsap.to(this.form.nativeElement, {
+        opacity: 0,
+        duration: 1
+      })
+      .then(() => {
+        this.form.nativeElement.remove();
+        this.sent = true;
+      });
+    }
   }
 
   check(eve: any) {
