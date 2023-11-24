@@ -1,22 +1,30 @@
-import { DOCUMENT } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, ElementRef, Inject, OnInit, Renderer2 } from '@angular/core';
+import { Component, Directive, ElementRef, QueryList, Renderer2, ViewChild, ViewChildren } from '@angular/core';
 
 import { NgForm } from '@angular/forms';
 import { z } from 'zod';
+
+@Directive({selector: 'form-property'})
+export class FormProperty {
+  constructor(){
+  }
+}
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
 })
-export class ContactComponent implements OnInit{
+export class ContactComponent {
 
   constructor(
     private httpClient: HttpClient,
-    private _renderer2: Renderer2, 
-    private elementRef: ElementRef
-  ){}
+    private _renderer2: Renderer2
+  ){
+    setTimeout(() => {
+      this.clean();
+    }, 1800);
+  }
 
   name: string = '';
   email: string = '';
@@ -24,10 +32,6 @@ export class ContactComponent implements OnInit{
 
   captcha: string = '';
   ready: boolean = false;
-
-  ngOnInit(): void {
-    
-  }
 
   getter(data: string) {
     return this[`${data}`].length > 0;
@@ -37,6 +41,8 @@ export class ContactComponent implements OnInit{
     this[`${data}`] = value;
   }
 
+
+  // sprawdzamy czy użytkownika chce dodać tab do tekstu
   checkKey(e: KeyboardEvent, textarea: HTMLTextAreaElement) {
     if (e.key == 'Tab') {
       e.preventDefault();
@@ -62,10 +68,19 @@ export class ContactComponent implements OnInit{
     recaptcha: z.string().min(10)
   });
 
+  @ViewChild("area")
+  area: ElementRef;
+
   public async send(contactForm: NgForm): Promise<void> {
     const values = contactForm.value;
 
+    console.log()
     if (!this.formSchema.safeParse(values).success || this.captcha.length < 10) return;
+
+    
+
+    let message = this.area.nativeElement.value.replaceAll("\n", "<br>");
+    message = message.replaceAll("\t", '&nbsp;&nbsp;&nbsp;&nbsp;');
 
     this.httpClient
       .post(
@@ -75,17 +90,27 @@ export class ContactComponent implements OnInit{
           email: values.email,
 
           company: values.company,
-          message: values.message,
+          message: message,
 
           captcha: this.captcha,
         })
       )
       .subscribe((e: {success: boolean}) => {
-        e.success? alert("E-mail has been sent."): alert("Somethink goes wrong, pleas try again later.");
+        e.success? [this.clean(), alert("E-mail has been sent.")]: alert("Somethink goes wrong, pleas try again later.");
       });
   }
 
   check(eve: any) {
     this.captcha = eve;
+  }
+
+  @ViewChildren(FormProperty)
+  formsElements: QueryList<ElementRef>;
+
+  clean()
+  {
+    this.formsElements.forEach((e: ElementRef) => {
+      console.log();
+    })
   }
 }

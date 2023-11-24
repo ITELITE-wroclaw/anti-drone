@@ -5,33 +5,45 @@
     <div class="sender">
         <div class="senderDetails">
             
-            <div>
-                <label [ngClass]=" getter('name')? 'static': '' " for="Name">Name</label>
-                <input #name ngModel type="text" autocomplete="name" name="name" (input)="setter('name', name.value)">
-            </div>
+            <form-property>
+                <div>
+                    <label [ngClass]=" getter('name')? 'static': '' " for="Name">Name</label>
+                    <input #name ngModel type="text" autocomplete="name" name="name" (input)="setter('name', name.value)">
+                </div>
+            </form-property>
+            
             
         </div>
 
         <div class="senderDetails">
+          
+            <form-property>
+                <div>
+                    <label [ngClass]=" getter('email')? 'static': '' " for="Email">Email</label>
+                    <input #email ngModel type="email" autocomplete="email" name="email" (input)="setter('email', email.value)">
+                </div>
+            </form-property>
             
-            <div>
-                <label [ngClass]=" getter('email')? 'static': '' " for="Email">Email</label>
-                <input #email ngModel type="email" autocomplete="email" name="email" (input)="setter('email', email.value)">
-            </div>
             
         </div>
 
         <div class="senderDetails">
 
-            <div>
-                <label [ngClass]=" getter('company')? 'static': '' ">Company</label>
-                <input #company ngModel type="text" autocomplete="additional-name" name="company" (input)="setter('company', company.value)">
-            </div>
+            <form-property>
+                <div>
+                    <label [ngClass]=" getter('company')? 'static': '' ">Company</label>
+                    <input #company ngModel type="text" autocomplete="additional-name" name="company" (input)="setter('company', company.value)">
+                </div>
+            </form-property>
+            
             
         </div>
     </div>
 
-    <textarea #area ngModel name="message" cols="31" rows="13" (keydown)="checkKey($event, area)"></textarea>
+    <form-property>
+        <textarea #area ngModel name="message" cols="31" rows="13" (keydown)="checkKey($event, area)"></textarea>
+    </form-property>
+    
 
     <ngx-recaptcha2 #captchaElem
     ngModel

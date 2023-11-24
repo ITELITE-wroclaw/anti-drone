@@ -21,47 +21,59 @@ form{
         .senderDetails{
             position: relative;
 
-            div{
-                background-color: rgb(255, 255, 255);
+            form-property{
+                width: 100%;
+                display: block;
 
-                label, input{
-                    color: rgb(88, 88, 88);
-                    font-size: 18px;
+                div{
+                    background-color: rgb(255, 255, 255);
+    
+                    label, input{
+                        color: rgb(88, 88, 88);
+                        font-size: 18px;
+                    }
+                    
+                    label{
+                        position: absolute;
+                        left: 5px;
+                        top: 0;
+                        transition: top .2s ease-in;
+                    }
+    
+                    label.static{
+                        top: -25px !important;
+                    }
+    
+                    input{
+                        outline: none;
+                        border: none;
+                        position: relative;
+                        background-color: transparent;
+                    }
+    
+                    &:has(input:focus) label{
+                        top: -25px;
+                    }
+                   
                 }
-                
-                label{
-                    position: absolute;
-                    left: 5px;
-                    top: 0;
-                    transition: top .2s ease-in;
-                }
-
-                label.static{
-                    top: -25px !important;
-                }
-
-                input{
-                    outline: none;
-                    border: none;
-                    position: relative;
-                    background-color: transparent;
-                }
-
-                &:has(input:focus) label{
-                    top: -25px;
-                }
-               
             }
             
         }
     }
 
-    textarea{
-        margin-top: 20px;
-        border: none;
-        outline: none;
-        padding: 18px 24px;
+    form-property{
+        width: 100%;
+        display: block;
+
+        textarea{
+            margin-top: 20px;
+            border: none;
+            outline: none;
+            padding: 18px 24px;
+            width: 100%
+        }
     }
+    
 
     ngx-recaptcha2, button{
         margin-top: 15px;
