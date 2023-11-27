@@ -1,6 +1,5 @@
 export interface generalDetails {
     header: string | string[],
-    paragraph: string,
     img_num: string | string[]
 }
 

@@ -3,13 +3,13 @@
 <div #content class="content content-{{ details?.id + 1 }}">
   <div class="text">
     <h3 itemprop="name">
-      {{ details?.value?.header }}
+      MODEL
     </h3>
+    <h4 itemprop="name">
+      {{ details?.value?.header }}
+    </h4>
 
     <div class="describe">
-      <p itemprop="description">
-        {{ details?.value?.paragraph }}
-      </p>
       <button #learnMore>Learn More</button>
     </div>
   </div>
@@ -161,6 +161,8 @@
     </div>
 
     <div class="properties charts">
+      <h4>Plots</h4>
+
       <div>
         <img
           itemprop="image"
