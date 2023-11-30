@@ -53,6 +53,7 @@ export const data = {
       1: imagesPath + 'home/content/charts/' + 'chart_1_2'
     },
   },
+
   1: {
     description: `
             This is a ruggedized steel directive LPD antenna covering from 500MHz up to 3GHz.
@@ -85,6 +86,7 @@ export const data = {
       0: imagesPath + 'home/content/charts/' + 'chart_2'
     },
   },
+
   2: {
     description: `
         This is a compact microstrip directive LPD antenna covering from 400MHz up to 7.2GHz.
@@ -117,6 +119,7 @@ export const data = {
       0: imagesPath + 'home/content/charts/' + 'chart_3'
     },
   },
+  
   3: {
     description: `
         This is a compact microstrip directive Vivaldi antenna covering from 500MHz up to 7.2GHz with a gain of up to 12 dBi.
