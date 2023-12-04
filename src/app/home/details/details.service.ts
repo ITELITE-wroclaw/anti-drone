@@ -18,11 +18,11 @@ export class DetailsService {
     .forEach((item: HTMLElement, id: number) => {
       gsap.fromTo(item,
       {
-        x: "-=150px",
+        y: "-=30px",
         opacity: 0
       },
       {
-        x: 0,
+        y: 0,
         opacity: 1
       })
       .delay(id + 1);
@@ -43,7 +43,7 @@ export class DetailsService {
       this.button.nativeElement.style.opacity = 0;
 
       setTimeout(() => {
-        this.button.nativeElement.style.display = "none";
+        //this.button.nativeElement.style.display = "none";
         detailsService.flag = true;
       }, 1200);
 
