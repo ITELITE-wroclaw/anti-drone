@@ -27,6 +27,8 @@
       "@app/*": ["./src/app/*"]
     }
   },
+  "fullTemplateTypeCheck": true,
+  "strictInjectionParameters": true,
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,

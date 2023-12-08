@@ -4,7 +4,8 @@ import { Meta } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { ScrollToPlugin } from "gsap/ScrollToPlugin"
 
-import gsap from "gsap"
+import { TextPlugin } from 'gsap/all';
+import gsap from "gsap/gsap-core";
 
 @Component({
   encapsulation: ViewEncapsulation.None,
@@ -17,7 +18,6 @@ import gsap from "gsap"
     <h1>ANTI DRONE SOLUTIONS</h1>
   </header>`
 })
-
 export class AppComponent implements OnInit {
 
   title: string = 'anti-drone';
@@ -26,8 +26,11 @@ export class AppComponent implements OnInit {
   constructor( private router: Router, private metaService: Meta){}
 
   ngOnInit() {
-      this.metaService.addTag({ name: 'json+ld', content: JSON.stringify(productLD) });
-      gsap.registerPlugin(ScrollToPlugin);
+    this.metaService.addTag({ name: 'json+ld', content: JSON.stringify(productLD) });
+    gsap.registerPlugin(ScrollToPlugin);
+    gsap.registerPlugin(TextPlugin);
+
+    this.router.events.subscribe( (e) => document.body.scroll({top: 0}) );
   }
 
   navigateToProducts()

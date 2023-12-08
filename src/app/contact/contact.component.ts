@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Directive, ElementRef, QueryList, Renderer2, ViewChild, ViewChildren } from '@angular/core';
+import { Component, Directive, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
 
 import { NgForm } from '@angular/forms';
 import { z } from 'zod';
@@ -8,8 +8,7 @@ import { gsap } from 'gsap/gsap-core';
 
 @Directive({selector: 'form-property'})
 export class FormProperty {
-  constructor(){
-  }
+  constructor(){}
 }
 
 @Component({
@@ -21,7 +20,6 @@ export class ContactComponent {
 
   constructor(
     private httpClient: HttpClient,
-    private _renderer2: Renderer2
   ){
     setTimeout(() => {
       this.clean();

@@ -5,8 +5,55 @@ $content_text_margin_top: 30px;
 
   .folder-view{
     display: flex;
-    justify-content: space-between;
+    align-items: end;
     margin-right: 25px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    flex-basis: 33%;
+
+    .text{
+      width: 100% !important;
+    }
+
+    div{
+      flex-basis: 33%;
+    }
+
+    .description{
+      h4{
+        font-size: 38px;
+        letter-spacing: 1px;
+        margin-bottom: 30px;
+      }
+
+      p{
+        font-size: 20px;
+        line-height: 31px;
+      }
+
+      p span:first-child{
+        width: 325px;
+        display: block;
+      }
+
+      position: absolute;
+      top: 245px;
+
+      left: 4%;
+      margin-bottom: 95px;
+
+      padding-bottom: 35px;
+      border-bottom: 1px dotted rgb(173, 169, 169);
+    }
+
+    .cover{
+      position: absolute;
+      bottom: 0;
+      left: 0px;
+      right: 0px;
+      height: 25%;
+      background: linear-gradient(0deg, rgb(173, 169, 169) 18%, rgba(173, 169, 169,0.8715861344537815) 29%, rgba(246,248,251,0) 100%);
+    }
   }
 
   &::after{
@@ -16,31 +63,34 @@ $content_text_margin_top: 30px;
     font-size: 24px;
     letter-spacing: 2px;
     padding-left: 15px;
+    padding-top: 6px;
 
-    left: -1px;
+    left: -2px;
     top: -38px;
     height: 38px;
     width: 220px;
 
-    background-color: $background;
-    border: 1px solid rgb(202, 202, 202);
+    background-color: #f4f4f4;
+    border: 2px solid rgb(202, 202, 202);
 
     border-bottom: none;
     border-radius: 10px 10px 0px 0px;
   }
 
+  background: #f4f4f4;
   flex-direction: column;
 
   position: relative;
   z-index: 1;
 
-  border: 1px solid rgb(202, 202, 202);
+  border: 2px solid rgb(202, 202, 202);
   border-radius: 0px 20px 20px 20px;
 
   display: flex;
-  min-height: 650px;
+  min-height: 505px;
+  overflow: hidden;
 
-  gap: 95px;
+  gap: 185px;
   width: 65%;
   margin: auto;
   margin-top: 75px;
@@ -51,7 +101,8 @@ $content_text_margin_top: 30px;
   .describe{
     display: flex;
     align-items: end;
-
+    z-index: 1;
+    
     button {
       width: 172px;
       height: 49px;
@@ -173,6 +224,7 @@ $content_text_margin_top: 30px;
 
     .properties,
     .box .properties {
+      
       width: 100%;
       margin-bottom: 95px;
 
@@ -243,6 +295,8 @@ $content_text_margin_top: 30px;
       }
     }
 
+    
+
     .properties:last-of-type {
       border: none;
     }
@@ -282,7 +336,7 @@ $content_text_margin_top: 30px;
     mat-icon {
       position: absolute;
       bottom: 0%;
-      right: 0%;
+      right: 3%;
       font-size: 35px;
       width: 34px;
       height: 34px;

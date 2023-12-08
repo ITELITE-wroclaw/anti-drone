@@ -1,10 +1,13 @@
 export interface generalDetails {
     header: string | string[],
-    img_num: string | string[]
+    img_num: string | string[],
+    
+    frequency: string | string[],
+    description: {p1: string, p2: string}
 }
 
 export interface particularDetails {
-    description: string
+    description: {p1: string, p2: string}
     specification: string,
 
     mechanical_properties: {

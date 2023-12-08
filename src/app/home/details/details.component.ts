@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Input, Output, ViewChild } from '@angular/core';
 import { fromEvent } from 'rxjs/internal/observable/fromEvent';
 
 import { imagesPath } from '@app/path';
@@ -16,10 +16,11 @@ import { DeviceDetectorService } from 'ngx-device-detector';
 })
 export class DetailsComponent implements AfterViewInit{
 
-  constructor(private changeDetRef: ChangeDetectorRef,
-              private detailsService: DetailsService, 
-              private deviceDet: DeviceDetectorService
-              ){}
+  constructor(
+    private changeDetRef: ChangeDetectorRef,
+    private detailsService: DetailsService,
+    private deviceDet: DeviceDetectorService
+  ){}
 
   protected img;
   sizes: number[][] = [[440, 478], [440, 478], [430, 347], [390, 314]];
@@ -53,6 +54,9 @@ export class DetailsComponent implements AfterViewInit{
 
     fromEvent(this.button.nativeElement, "mouseenter")
     .subscribe(this.detailsService.showProperties.bind(this));
+
+    fromEvent(this.button.nativeElement, "click")
+    .subscribe(this.detailsService.showProperties.bind(this, true));
   }
 
   hideDetails(): void
@@ -64,13 +68,9 @@ export class DetailsComponent implements AfterViewInit{
     this.changeDetRef.detectChanges();
   }
   
-  protected isNumber(width): boolean
+  protected isType(data, type: string): boolean
   {
-    return typeof width == "number";
+    return typeof data == type;
   }
 
-  isString(data): boolean
-  {
-    return typeof data == "string";
-  }
 }

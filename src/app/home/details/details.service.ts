@@ -31,10 +31,22 @@ export class DetailsService {
   }
 
   last;
+  force: boolean = false;
 
-  showProperties(this): void
+  showProperties(this, click): void
   {
+
     const detailsService = this.detailsService;
+
+    if(click && typeof click == "boolean")
+    {
+      detailsService.flag = true;
+      detailsService.force = true;
+
+      show.call(this);
+      return;
+    };
+
     if(detailsService.time) return;
 
     function show(): void
@@ -42,7 +54,7 @@ export class DetailsService {
       if(!detailsService.flag) return;
       this.button.nativeElement.style.opacity = 0;
 
-      setTimeout(() => {
+      if(!click) setTimeout(() => {
         //this.button.nativeElement.style.display = "none";
         detailsService.flag = true;
       }, 1200);
@@ -52,7 +64,11 @@ export class DetailsService {
 
       this.changeDetRef.detectChanges();
       detailsService.gsapDetails(this.content.nativeElement);
+
+      detailsService.force = false;
     }
+
+    if(detailsService.force) return;
 
     detailsService.flag = true;
     detailsService.time = setTimeout(show.bind(this), 1250);
