@@ -13,12 +13,12 @@ $background: rgba(246, 248, 251, 1);
     .news{
         width: 95%;
         position: relative;
-        height: 90px;
+        min-height: 26vh;
         margin-top: 25px;
 
         h3{
             position: absolute;
-            top: 100%;
+            top: 150px;
             left: 50%;
             transform: translate(-50%, -50%);
 
@@ -75,10 +75,12 @@ $background: rgba(246, 248, 251, 1);
     .container{
         .news{
             h3{
+                position: absolute;
                 font-size: 230px;
                 width: 90vw;
                 white-space: nowrap;
                 left: 35%;
+                top: 150px;
             }
         }
     }
