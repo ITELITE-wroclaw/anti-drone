@@ -172,7 +172,23 @@ form{
 
 @media (max-width: 580px)
 {
+    form{
+        button{
+            width: 32%;
+            padding: 4px 0px;
+            margin-top: 35px;
+        }
+    }
+
     .contact{
         gap: 0px;
+        flex-direction: column;
+
+        div{
+
+            h4{
+                font-size: 21px;
+            }
+        }
     }
 }
