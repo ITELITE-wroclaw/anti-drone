@@ -152,7 +152,7 @@
       </div>
 
       <div
-        *ngIf="isType(properties.mechanical_properties.width[0], 'string'); else arr"
+        *ngIf="isType(properties.mechanical_properties.width[0], 'number'); else arr"
       >
         Width: {{ properties.mechanical_properties.width[0] }}cm /
         {{ properties.mechanical_properties.width[1] }}inch

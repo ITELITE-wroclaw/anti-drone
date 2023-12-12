@@ -4,7 +4,7 @@ export const data = {
   0: {
 
     specification: {
-      'Frequency': '433MHz – 1.3GHz, 2.4GHz – 2.5GHz , 5.1GHz – 5.9GHz',
+      'Frequency': '433MHz – 1.3GHz, 2.4GHz – 2.5GHz , 5.1GHz – 6GHz',
       Gain: [
         {
           P1: '3.5 – 7.9 dBi',
@@ -26,14 +26,14 @@ export const data = {
       VSWR: '< 2',
       Impedance: '50 Ohms',
       'XPD (cross polarization discrimination)': '> 20dB',
-      'RF Interface': 'X8 N-type Female (2 per quadrant)',
+      'RF Interface': '8 x N-type Female (2 per quadrant)',
     },
 
     mechanical_properties: {
       length: [40.5, 15.94],
       width: [53, 20.86],
-      weight: [0.2, 0.44],
-      color: 'white or green',
+      weight: [8, 17.6],
+      color: 'white, green or desert',
       material: 'Plastic',
     },
 
@@ -46,14 +46,14 @@ export const data = {
   1: {
 
     specification: {
-      'Frequency': '400MHz – 6GHz',
+      'Frequency': '400MHz – 7.2GHz',
       Gain: '8-9 dBi',
       'Beamwidth Azimuth': '80 deg (@ -3dB)',
       'Beamwidth Elevation': '60 deg (@ -3 dB)',
       VSWR: '< 2',
       Impedance: '50 Ohms',
       'XPD (cross polarization discrimination)': '> 25dB',
-      'RF Interface': 'X4 N-type Female (1 per quadrant)',
+      'RF Interface': '4 x N-type Female (1 per quadrant)',
     },
 
     mechanical_properties: {
@@ -61,7 +61,7 @@ export const data = {
       width: [84, 33.07],
       height: [115, 45.27],
       weight: [17, 37.47],
-      color: 'white or green',
+      color: 'white, green or desert',
       material: 'Plastic',
     },
 
@@ -80,14 +80,14 @@ export const data = {
       VSWR: '< 2',
       Impedance: '50 Ohms',
       'XPD (cross polarization discrimination)': '> 20dB',
-      'RF Interface': 'N-type Female ',
+      'RF Interface': '2 x N-type Female ',
     },
 
     mechanical_properties: {
       length: [63.2, 24.88],
       width: [[41.5, 34.7], [16.33, 14.84]],
-      weight: [0.2, 0.44],
-      color: 'white or green',
+      weight: [7, 15.4],
+      color: 'white, green or desert',
       material: 'Plastic',
     },
 
@@ -99,21 +99,21 @@ export const data = {
   3: {
 
     specification: {
-      'Frequency': '500MHz – 3GHz',
+      'Frequency': '500MHz – 7.2GHz',
       Gain: '10 dBi',
       'Beamwidth Azimuth': '80 deg (@ -3dB)',
       'Beamwidth Elevation': '50 deg (@ -3 dB)',
       VSWR: '< 2',
       Impedance: '50 Ohms',
       'XPD (cross polarization discrimination)': '> 20dB',
-      'RF Interface': 'N-type Female ',
+      'RF Interface': '2 x N-type Female ',
     },
 
     mechanical_properties: {
       length: [72, 28.34],
       width: [29, 11.41],
       weight: [3.75, 8.26],
-      color: 'white or green',
+      color: 'white, green or desert',
       material: 'Plastic',
     },
 
