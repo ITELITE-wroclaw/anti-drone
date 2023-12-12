@@ -1,11 +1,16 @@
 
 <div #content class="content content-{{ details?.id + 1 }}">
 
-  <div class="folder-view">
+  <div class="model">
+    <h4 itemprop="name">
+      MODEL 
+      <span>#{{ details?.value?.header }}</span>
+    </h4>
+  </div>
+
+  <div #folder class="folder-view">
     <div class="text">
-      <h4 itemprop="name">
-        {{ details?.value?.header }}
-      </h4>
+      
       <h5 *ngIf="isType(details.value.frequency, 'string'); else arrFreq">
         {{details.value.frequency}}
       </h5>
@@ -42,7 +47,7 @@
       <button #learnMore>Learn More</button>
     </div>
 
-    <div class="cover"></div>
+    <div #cover class="cover"></div>
   </div>
   
 

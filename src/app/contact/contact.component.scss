@@ -169,3 +169,10 @@ form{
         flex-wrap: wrap;
     }
 }
+
+@media (max-width: 580px)
+{
+    .contact{
+        gap: 0px;
+    }
+}

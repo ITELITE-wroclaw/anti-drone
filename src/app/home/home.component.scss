@@ -10,7 +10,7 @@ $content_text_margin_top: 30px;
         margin-top: 15px;
     }
 
-    $list: 310, 310, 280, 250;
+    $list: 310, 310, 280, 320;
 
     @for $i from 1 through 4{
 
@@ -130,6 +130,16 @@ $content_text_margin_top: 30px;
 
     section{
         min-height: 800px;
+    }
+}
+
+@media (max-width: 440px){
+    section{
+        header{
+            h1{
+                font-size: 40px;
+            }
+        }
     }
 }
 

@@ -55,12 +55,20 @@ export class DetailsService {
       this.button.nativeElement.style.opacity = 0;
 
       if(!click) setTimeout(() => {
-        //this.button.nativeElement.style.display = "none";
+       
         detailsService.flag = true;
       }, 1200);
 
+      this.cover.nativeElement.style.opacity = "0";
+      this.folder.nativeElement.style.overflow = "visible";
+
+      this.folder.nativeElement.style.maxHeight = "none";
+      this.folder.nativeElement.style.height = "auto";
+
       detailsService.flag = false;
       this.properties = data[this.details.id];
+
+      this.button.nativeElement.style.display = "none";
 
       this.changeDetRef.detectChanges();
       detailsService.gsapDetails(this.content.nativeElement);

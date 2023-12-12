@@ -47,6 +47,12 @@ export class DetailsComponent implements AfterViewInit{
   @ViewChild("learnMore")
   button: ElementRef;
 
+  @ViewChild("cover")
+  cover: ElementRef;
+
+  @ViewChild("folder")
+  folder: ElementRef;
+
   public ngAfterViewInit(): void {
 
     fromEvent(this.button.nativeElement, "mouseleave")
@@ -63,6 +69,12 @@ export class DetailsComponent implements AfterViewInit{
   {
     this.properties = null;
     this.button.nativeElement.style.display = "block";
+
+    this.folder.nativeElement.style.overflow = "hidden";
+    this.cover.nativeElement.style.opacity = "1";
+
+    this.folder.nativeElement.style.maxHeight = "450px"
+    this.folder.nativeElement.style.height = "none"
 
     this.button.nativeElement.style.opacity = 1;
     this.changeDetRef.detectChanges();

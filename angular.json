@@ -15,8 +15,14 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
+            "customWebpackConfig": {
+              "path": "./webpack.config.js",
+              "mergeRules": {
+                "externals": "replace"
+              }
+            },
             "preserveSymlinks": true,
             "outputPath": "dist/app",
             "index": "src/index.html",
@@ -37,6 +43,22 @@
           },
           "configurations": {
             "production": {
+
+              "buildOptimizer": true,
+
+              "optimization": {
+                "fonts": true,
+                "scripts": true
+              },
+
+              "outputHashing": "all",
+
+              "vendorChunk": true,
+              "extractLicenses": true,
+
+              "sourceMap": false,
+              "namedChunks": false,
+
               "budgets": [
                 {
                   "type": "initial",
@@ -48,8 +70,8 @@
                   "maximumWarning": "2kb",
                   "maximumError": "250kb"
                 }
-              ],
-              "outputHashing": "all"
+              ]
+              
             },
             "development": {
               "buildOptimizer": false,
@@ -57,7 +79,7 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": false
             }
           },
           "defaultConfiguration": "production"
