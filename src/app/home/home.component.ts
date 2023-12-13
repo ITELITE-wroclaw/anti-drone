@@ -80,7 +80,7 @@ export class HomeComponent implements AfterViewInit {
         p2: `
           The polarization is linear and by rotating the antenna you can set the polarization to H, V or slant polarization.
           The antenna is made up using 2 sub-antennas combined with a diplexer, providing a smooth and uniform response.
-          This is a compact microstrip directive Vivaldi antenna covering from 500MHz up to 6GHz with a gain of up to 12 dBi. 
+          This is a compact microstrip directive Vivaldi antenna covering from 400MHz up to 6GHz with a gain of up to 12 dBi. 
           The polarization is dual linear and by rotating the antenna you can set the polarization to H&V or slant polarization.`
       },
     },
