@@ -55,7 +55,7 @@ export class HomeComponent implements AfterViewInit {
           This antenna system is designed for covering a wide range of frequencies with consistency in gain and beamwidth and providing 360 degrees of coverage. 
           The system is divided into 4 quadrants, each quadrant containing a vertically polarized antenna, covering 433MHz to 6GHz.
         `
-  },
+      },
     },
     1: {
       header: 'ADAS 2.1 O',
@@ -72,7 +72,7 @@ export class HomeComponent implements AfterViewInit {
     2: {
       header: 'ADAS 1.1 D',
       img_num: '3',
-      frequency: '500MHz – 6GHz',
+      frequency: '400MHz – 6GHz',
       description: {
         p1: `
           This is a compact microstrip directive LPD antenna covering from 400MHz up to 6GHz.

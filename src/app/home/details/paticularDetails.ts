@@ -73,7 +73,7 @@ export const data = {
   2: {
 
     specification: {
-      'Frequency': '500MHz – 6GHz',
+      'Frequency': '400MHz – 6GHz',
       Gain: '7 - 12 dBi',
       'Beamwidth Azimuth': '50 - 60 deg (@ -3dB)',
       'Beamwidth Elevation': '20 - 70 deg (@ -3 dB)',
