@@ -1,8 +1,11 @@
 import {
   AfterViewInit,
   Component,
+  Directive,
   ElementRef,
+  QueryList,
   ViewChild,
+  ViewChildren,
 } from '@angular/core';
 
 import { generalDetails } from './detailsTypes';
@@ -10,6 +13,10 @@ import { HomeService } from './home.service';
 
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { Meta } from '@angular/platform-browser';
+import { fromEvent, merge } from 'rxjs';
+
+@Directive({selector: "arrow"})
+class Arrow{}
 
 @Component({
   selector: 'app-home',
@@ -101,6 +108,9 @@ export class HomeComponent implements AfterViewInit {
     },
   };
 
+  @ViewChildren("arrow")
+  arrows: QueryList<ElementRef>;
+
   @ViewChild('machine_line')
   machine_line: ElementRef;
 
@@ -109,6 +119,14 @@ export class HomeComponent implements AfterViewInit {
 
   async ngAfterViewInit(): Promise<void> {
     this.homeService.init(this.writeLine, this.elements);
+    
+    merge(
+      fromEvent( this.arrows.first.nativeElement, "click"),
+      fromEvent( this.arrows.last.nativeElement, "click")
+    )
+    .subscribe((e: {target: HTMLElement}) => {
+      console.log(e.target.getAttribute("data-id"));
+    })
   }
 
   handleResize(event) {
