@@ -28,6 +28,8 @@ section {
   position: relative;
   width: 95%;
   margin: 90px auto 0px auto;
+  display: flex;
+  height: 643px;
 
   .slide{
     position: absolute;
@@ -43,13 +45,9 @@ section {
 
     cursor: pointer;
 
-    &:first-of-type svg{
-      transform: rotate(180deg);
-    }
-
     svg{
-        width: 14px;
-        height: 22px;
+      width: 14px;
+      height: 22px;
     }
   }
 
@@ -58,8 +56,32 @@ section {
   }
 
   .previous{
+    
     left: 0;
+
+    svg{
+      transform: rotate(180deg);
+    }
   }
+
+  .box{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+
+    .slider{
+      position: absolute;
+      width: 100%;
+  
+      @for $i from 1 through 3{
+        &:nth-of-type(#{$i}){
+          left: calc( ($i - 1) * 100%);
+        }
+      }
+      
+    }
+  }
+  
 
   img {
     position: relative;

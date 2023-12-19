@@ -13,7 +13,7 @@ import { HomeService } from './home.service';
 
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { Meta } from '@angular/platform-browser';
-import { fromEvent, merge } from 'rxjs';
+import { fromEvent, map, merge } from 'rxjs';
 
 @Directive({selector: "arrow"})
 class Arrow{}
@@ -124,8 +124,26 @@ export class HomeComponent implements AfterViewInit {
       fromEvent( this.arrows.first.nativeElement, "click"),
       fromEvent( this.arrows.last.nativeElement, "click")
     )
-    .subscribe((e: {target: HTMLElement}) => {
-      console.log(e.target.getAttribute("data-id"));
+    .pipe(
+      map( async(e: {target: HTMLElement}) => {
+
+        function getProperElement(element: HTMLElement): Promise<{target: HTMLElement}>
+        {
+          return new Promise(async (resolve) => {
+
+            if(element.hasAttribute("data-id")) return resolve({target: element});
+            resolve(await getProperElement(element.parentElement));
+          });
+        }
+
+        return await getProperElement(e.target);
+      })
+    )
+    .subscribe((e: Promise<{target: HTMLElement}>) => {
+      e.then((result: {target: HTMLElement}) => {
+        this.homeService.slider( Number(result.target.getAttribute("data-id")) )
+      })
+     
     })
   }
 
