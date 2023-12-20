@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { NgxResizeObserverModule } from 'ngx-resize-observer';
 
 import { HomeService } from './home.service';
+import { FormGroup, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HomeService } from './home.service';
     CommonModule,
     MatIconModule,
     NgxResizeObserverModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+    FormsModule
   ],
   exports: [HomeComponent],
   providers: [HomeService]

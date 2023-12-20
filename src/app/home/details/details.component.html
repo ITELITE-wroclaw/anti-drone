@@ -21,7 +21,7 @@
       </ng-template>
     </div>
 
-    <div class="image">
+    <div *ngIf="details.value.img_num" class="image">
       <img
         itemprop="image"
         ngSrc="{{ img || imagesPath + details.value.img_num + '.webp' }}"
@@ -51,7 +51,7 @@
   </div>
   
 
-  <div *ngIf="properties" class="particular_details">
+  <div *ngIf="properties && !properties.form" class="particular_details">
 
     <div class="properties specification">
       <h4>Specification</h4>
@@ -211,6 +211,35 @@
 
     <mat-icon (click)="hideDetails()">close</mat-icon>
   </div>
+
+    <form *ngIf="properties && properties.form" #form="ngForm" (ngSubmit)="sendMail(form, area)">
+      <h2>Contact us</h2>
+
+      <label>*Name/Company</label>
+      <input type="text" ngModel name="name">
+
+      <label>*Email</label>
+      <input type="email" ngModel name="email">
+
+      <label>Type</label>
+      <select name="type" ngModel>
+        <option value="omnidirectional">Omnidirectional</option>
+        <option value="directional">Directional</option>
+      </select>
+  
+      <label>Frequency</label>
+      <input type="text" ngModel name="frequency">
+
+      <label>Amount of connectors</label>
+      <input type="text" ngModel name="connectors_amount">
+
+      <textarea #area name="comment" ngModel cols="40" rows="10"></textarea>
+  
+      <button type="submit">Send</button>
+      <mat-icon (click)="hideDetails()">close</mat-icon>
+    </form>
 </div>
 
-<span *ngIf="details?.id != 3" class="line"></span>
+
+
+<span *ngIf="details?.id != 4" class="line"></span>

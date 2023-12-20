@@ -36,7 +36,7 @@ export class HomeComponent implements AfterViewInit {
   private elements: HTMLCollectionOf<Element> = document.getElementsByClassName('container-fluid');
   protected images: Blob[] = [];
 
-  ngOnInit(): void {
+ public ngOnInit(): void {
     this.metaTagService.addTags([
       {name: "keywords", content: "anti drone antennas, anti drone, anti drone antenna, counter drone antennas, drone jammers antennas, counter uav antennas, ant uav antennas, drone dome, airspace security, drone protection"},
       { name: 'robots', content: 'index, follow' },
@@ -106,6 +106,16 @@ export class HomeComponent implements AfterViewInit {
           `
       }
     },
+    4: {
+      header: 'CUSTOM',
+      img_num: false,
+      description: {
+        p1: `
+          We can help you to build your own counter drone antenna. Our team specialize in custom build antennas for different aplications for over 20 years now.
+          We custom everything from the antenna through housing mounting to connectors.
+          `
+      }
+    },
   };
 
   @ViewChildren("arrow")
@@ -141,7 +151,7 @@ export class HomeComponent implements AfterViewInit {
     )
     .subscribe((e: Promise<{target: HTMLElement}>) => {
       e.then((result: {target: HTMLElement}) => {
-        this.homeService.slider( Number(result.target.getAttribute("data-id")) )
+        this.homeService.slider( Number(result.target.getAttribute("data-id")), true )
       })
      
     })

@@ -3,31 +3,44 @@ import { TextPlugin, ScrollTrigger } from 'gsap/src/all';
 
 import gsap from "gsap";
 import { DeviceDetectorService } from 'ngx-device-detector';
+import {  ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class HomeService {
 
-  constructor(private deviceService: DeviceDetectorService){}
+  constructor(private deviceService: DeviceDetectorService, private router: ActivatedRoute){
+    this.router.paramMap.subscribe(params => {
+      // Handle the changes here
+      const id = params.get('id');
+      console.log('Route parameter "id" changed:', id);
+
+      // You can perform any additional logic or fetch data based on the new parameter
+      // For example, make an API call using the new parameter value
+      // this.loadData(id);
+    });
+  }
   private topProperties = [];
 
   private interval;
   private process;
 
   private slides: number[] = [1, 2, 3];
+  animationList: GSAPAnimation[] = [];
 
   public machineWritting(writeLine?)
   {
+
     gsap.registerPlugin(TextPlugin);
     gsap.registerPlugin(ScrollTrigger);
 
     let limit: number = 3;
 
     const times = {
-      1: 29,
-      2: 10,
-      3: 10
+      1: 27,
+      2: 8,
+      3: 8
     }
 
     const textGather = {
@@ -44,37 +57,62 @@ export class HomeService {
       From drone interference devices to anti-drone RF shielding, our technology ensures a robust shield against airborne intruders.`
     }
 
-    function writeText(id: number)
-    {
-      if(this.slides[id]) this.process = gsap.to(".machine_line_"+id, 
-      {
-        text: {
-          value: textGather[id]
-        },
-        duration: times[id],
-        delay: 1,
-        ease: "none"
-      });
+    return new Promise((resolve) => {
+      function writeText(id: number)
+      { 
+        if(!this.slides[this.slides.findIndex((e) => e === id)]) return resolve(7900);
+        
+        this.process = gsap.to(".machine_line_"+id, 
+        {
+          text: {
+            value: textGather[id]
+          },
+          duration: times[id],
+          delay: 1,
+          ease: "none"
+        });
 
-      this.slides.splice(id, 1);
+        this.animationList.push(this.process);
+        this.process.then(() => {
+          this.slides.splice(this.slides.findIndex((e) => e === id), 1);
+          resolve(150);
+        });
+  
+      }
 
-    }
+      writeText.call(this, this.currentImg);
+    });
 
-    writeText.call(this, this.currentImg);
   }
 
-  private autoSlider(id: number)
+  private autoSlider(id: number, writeLine)
   {
-    this.interval = setInterval(() => {
-      this.slider(id);
-      id++;
-      if(id > this.imageLen) id = 1;
-    }, 7900);
+    
+    if(this.animationList.length) this.animationList = [];
+    async function timeout()
+    {
+
+      const res = await this.machineWritting(writeLine);
+      this.interval = setTimeout( async() => {
+
+        if(id !== this.currentImg) return;
+
+        this.slider(id, false);
+  
+        id++;
+        if(id > this.imageLen) id = 1;
+  
+        timeout.call(this);
+      }, res);
+    }
+
+    timeout.call(this);
+    
   }
 
   public init(writeLine, elements): void
   {
-    this.machineWritting(writeLine);
+    this.autoSlider(1, writeLine);
 
     gsap.fromTo(
       "h1",
@@ -188,9 +226,10 @@ export class HomeService {
   private currentImg: number = 1;
   private readonly imageLen = 3;
 
-  public slider(id: number)
+  public async slider(id: number, call: boolean)
   {
-    if(this.interval) clearInterval(this.interval);
+    if(call) this.process = undefined;
+    if(this.interval) clearTimeout(this.interval);
 
     let secondSlideId;
     id? secondSlideId = this.currentImg + 1: secondSlideId = this.currentImg - 1;
@@ -204,6 +243,8 @@ export class HomeService {
     if(this.currentImg > this.imageLen) this.currentImg = 1;
     if(this.currentImg <= 0) this.currentImg = this.imageLen;
 
+    if(this.animationList[0]) {this.animationList[0].duration(0); this.animationList = []};
+    if(!this.process) this.autoSlider(this.currentImg, null)
   }
 
 }

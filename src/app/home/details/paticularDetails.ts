@@ -2,6 +2,7 @@ import { imagesPath } from '@app/path';
 
 export const data = {
   0: {
+    form: false,
 
     specification: {
       'Frequency': '433MHz – 1.3GHz, 2.4GHz – 2.5GHz , 5.1GHz – 6GHz',
@@ -44,7 +45,7 @@ export const data = {
   },
 
   1: {
-
+    form: false,
     specification: {
       'Frequency': '400MHz – 7.2GHz',
       Gain: '8-9 dBi',
@@ -71,7 +72,7 @@ export const data = {
   },
 
   2: {
-
+    form: false,
     specification: {
       'Frequency': '400MHz – 6GHz',
       Gain: '7 - 12 dBi',
@@ -97,7 +98,7 @@ export const data = {
   },
   
   3: {
-
+    form: false,
     specification: {
       'Frequency': '500MHz – 7.2GHz',
       Gain: '10 dBi',
@@ -121,4 +122,7 @@ export const data = {
       0: imagesPath + 'home/content/charts/' + 'chart_4'
     },
   },
+  4: {
+    form: true
+  }
 };

@@ -358,6 +358,41 @@ $content_text_margin_top: 30px;
     }
   }
 
+  h2{
+    margin: auto;
+    margin-bottom: 55px;
+  }
+
+  form{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+
+    h2{
+      margin-bottom: 55px;
+    }
+
+    input, select{
+      min-width: 170px;
+      width: 25%;
+      margin-bottom: 15px;
+    }
+
+    button{
+      margin-top: 22px;
+      margin-bottom: 65px;
+    }
+
+    mat-icon {
+      position: absolute;
+      bottom: 2%;
+      right: 3%;
+      font-size: 35px;
+      width: 34px;
+      height: 34px;
+      color: #2556ec;
+    }
+  }
 }
 
 .background_header {

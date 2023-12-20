@@ -1,7 +1,9 @@
-import { Injectable } from '@angular/core';
+import { ElementRef, Injectable, ViewChild } from '@angular/core';
 import { data } from './paticularDetails';
 
 import gsap from 'gsap';
+import { NgForm } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +12,8 @@ export class DetailsService {
 
   private time;
   private flag: boolean = false;
+
+  constructor(private httpClient: HttpClient){}
 
   gsapDetails(content: HTMLElement)
   {
@@ -88,5 +92,37 @@ export class DetailsService {
     clearTimeout(this.detailsService.time);
 
     this.detailsService.time = undefined;
+  }
+
+  public customAntennaInquiry(values, area: HTMLTextAreaElement)
+  {
+
+    let message = area.value.replaceAll("\n", "<br>");
+    message = message.replaceAll("\t", '&nbsp;&nbsp;&nbsp;&nbsp;');
+
+    this.httpClient
+      .post(
+        'http://localhost:3000/custom',
+        JSON.stringify({
+          name: values.name,
+          email: values.email,
+
+          type: values.type? values.type: "",
+          frequency: values.frequency? values.frequency: "",
+
+          connectors_amount: values.connectors_amount? values.connectors_amount: "",
+          message: message
+        })
+      )
+      .subscribe((e: {success: boolean}) => {
+        e.success? this.wasSend(): alert("Somethink goes wrong, pleas try again later.");
+      });
+  }
+
+  private wasSend()
+  {
+
+    document.querySelector("form").innerHTML = "<h2>Your mail has been sent.</h2>";
+
   }
 }

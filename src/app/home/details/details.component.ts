@@ -7,6 +7,9 @@ import { generalDetails, particularDetails } from '../detailsTypes';
 import { DetailsService } from './details.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
 
+import { NgForm } from '@angular/forms';
+import { object, string } from 'zod';
+
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
@@ -83,6 +86,19 @@ export class DetailsComponent implements AfterViewInit{
   protected isType(data, type: string): boolean
   {
     return typeof data == type;
+  }
+
+  public sendMail(mailForm: NgForm, area: HTMLTextAreaElement)
+  {
+    let requires = object({
+      name: string().min(3),
+      email: string().email()
+    });
+
+    const result: any = requires.safeParse(mailForm.value);
+    console.log(mailForm)
+
+    result.success? this.detailsService.customAntennaInquiry(mailForm.value, area): alert('Add name/company name and contact email');
   }
 
 }

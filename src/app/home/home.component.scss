@@ -9,6 +9,20 @@ $content_text_margin_top: 30px;
   margin-top: 15px;
 }
 
+:host .container-fluid:nth-of-type(5) ::ng-deep app-details .content {
+
+  gap: 75px;
+
+  .folder-view {
+    min-height: 425px;
+
+    .description p span{
+      width: 100% !important;
+    }
+  }
+  
+}
+
 $list: 310, 310, 280, 320;
 
 @for $i from 1 through 4 {
@@ -86,7 +100,7 @@ section {
   img {
     position: relative;
     height: 68vh;
-    width: -webkit-fill-available;
+    width: 100%;
     object-fit: cover;
     filter: grayscale(0.6) saturate(0.8) brightness(0.7);
   }

@@ -1,12 +1,14 @@
 export interface generalDetails {
-    header: string | string[],
-    img_num: string | string[],
     
-    frequency: string | string[],
-    description: {p1: string, p2: string}
+    header: string | string[],
+    img_num: string | string[] | boolean,
+    
+    frequency?: string | string[],
+    description: {p1: string, p2?: string}
 }
 
 export interface particularDetails {
+    form?: boolean,
     description: {p1: string, p2: string}
     specification: string,
 
