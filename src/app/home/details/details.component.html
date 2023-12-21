@@ -224,8 +224,7 @@
     <mat-icon (click)="hideDetails()">close</mat-icon>
   </div>
 
-    <form *ngIf="properties && properties.form" #form="ngForm" (ngSubmit)="sendMail(form, area)">
-      <h2>Contact us</h2>
+    <form *ngIf="properties && properties.form" #form="ngForm" (ngSubmit)="sendMail(form, area)" style="margin-top: 45px;">
 
       <label>*Name/Company</label>
       <input type="text" ngModel name="name">

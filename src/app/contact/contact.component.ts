@@ -88,7 +88,7 @@ export class ContactComponent {
     
     this.httpClient
       .post(
-        'http://localhost:3000/contact',
+        'https://mail-service-4o2h.onrender.com/contact',
         JSON.stringify({
           name: values.name,
           email: values.email,

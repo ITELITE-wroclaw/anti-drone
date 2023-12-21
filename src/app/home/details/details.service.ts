@@ -101,7 +101,7 @@ export class DetailsService {
 
     this.httpClient
       .post(
-        'http://localhost:3000/custom',
+        'https://mail-service-4o2h.onrender.com/custom',
         JSON.stringify({
           name: values.name,
           email: values.email,
