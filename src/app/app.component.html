@@ -5,7 +5,10 @@
   <div #nav_list class="nav-list">
     <ul>
       <li routerLink="/">Home</li>
-      <li routerLink="/" (click)="navigateToProducts()">Products</li>
+      <li routerLink="/" (click)="navigateToProducts('/')">Products</li>
+
+      <li routerLink="/" (click)="navigateToProducts('custom')">Custom</li>
+      
       <li routerLink="contact">Contact</li>
       <li routerLink="news" >News</li>
     </ul>

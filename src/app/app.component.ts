@@ -33,12 +33,21 @@ export class AppComponent implements OnInit {
     this.router.events.subscribe( (e) => document.body.scroll({top: 0}) );
   }
 
-  navigateToProducts()
+  navigateToProducts(data: string)
   {
     this.router.navigate(["/"])
     .then(
       () => {
-        gsap.to(document.body, {scrollTo: ".container-fluid", duration: 1})
+        switch(data)
+        {
+          case "/":
+            gsap.to(document.body, {scrollTo: ".container-fluid", duration: 1});
+          break;
+          case "custom":
+            gsap.to(document.body, {scrollTo: ".container-fluid:nth-of-type(5)", duration: 1})
+          break;
+        }
+        
         
       }
     );

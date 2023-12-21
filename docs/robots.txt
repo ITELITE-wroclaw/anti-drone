@@ -1,6 +1,0 @@
-User-agent: *
-Allow: /
-Allow: /#/products
-Allow: /#/contact
-Allow: /#/news
-Sitemap: https://antidroneantennas.net/sitemap.xml

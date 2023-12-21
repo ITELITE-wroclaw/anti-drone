@@ -3,24 +3,41 @@ import { TextPlugin, ScrollTrigger } from 'gsap/src/all';
 
 import gsap from "gsap";
 import { DeviceDetectorService } from 'ngx-device-detector';
-import {  ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class HomeService {
 
-  constructor(private deviceService: DeviceDetectorService, private router: ActivatedRoute){
-    this.router.paramMap.subscribe(params => {
-      // Handle the changes here
-      const id = params.get('id');
-      console.log('Route parameter "id" changed:', id);
+  constructor(private deviceService: DeviceDetectorService, private router: Router){
+    function kill()
+    {
+      this.route = false;
+      this.process?.duration(0);
+    }
+    
 
-      // You can perform any additional logic or fetch data based on the new parameter
-      // For example, make an API call using the new parameter value
-      // this.loadData(id);
+    window.addEventListener('load', () => {
+      // Your code to run when the entire page is ready
+      this.init(this.elements, this.writeLine)
+      
+      this.router.events.subscribe(params => {
+        if(params instanceof NavigationEnd)
+        {
+          const data = params.url.replace("/", "");
+          data == ""? 
+          [this.slides = [1,2,3], this.currentImg = 1, this.route = true, this.init(this.writeLine, this.elements)]: 
+          kill.call(this);
+        }
+      });
     });
+    
   }
+
+  elements;
+  writeLine;
+
   private topProperties = [];
 
   private interval;
@@ -28,6 +45,8 @@ export class HomeService {
 
   private slides: number[] = [1, 2, 3];
   animationList: GSAPAnimation[] = [];
+
+  private route: boolean = true;
 
   public machineWritting(writeLine?)
   {
@@ -60,6 +79,7 @@ export class HomeService {
     return new Promise((resolve) => {
       function writeText(id: number)
       { 
+        if(!this.route) return;
         if(!this.slides[this.slides.findIndex((e) => e === id)]) return resolve(7900);
         
         this.process = gsap.to(".machine_line_"+id, 
@@ -74,6 +94,7 @@ export class HomeService {
 
         this.animationList.push(this.process);
         this.process.then(() => {
+          if(!this.route) return;
           this.slides.splice(this.slides.findIndex((e) => e === id), 1);
           resolve(150);
         });
@@ -102,7 +123,7 @@ export class HomeService {
         id++;
         if(id > this.imageLen) id = 1;
   
-        timeout.call(this);
+        if(this.route) timeout.call(this);
       }, res);
     }
 

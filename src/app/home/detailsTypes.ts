@@ -2,6 +2,8 @@ export interface generalDetails {
     
     header: string | string[],
     img_num: string | string[] | boolean,
+
+    form?: boolean,
     
     frequency?: string | string[],
     description: {p1: string, p2?: string}

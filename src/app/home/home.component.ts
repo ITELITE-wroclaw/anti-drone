@@ -3,6 +3,7 @@ import {
   Component,
   Directive,
   ElementRef,
+  OnDestroy,
   QueryList,
   ViewChild,
   ViewChildren,
@@ -18,6 +19,9 @@ import { fromEvent, map, merge } from 'rxjs';
 @Directive({selector: "arrow"})
 class Arrow{}
 
+@Directive({selector: "sliderText"})
+class sliderText{}
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -26,12 +30,12 @@ class Arrow{}
                 <h1>ANTI DRONE SOLUTIONS</h1>
              </header>`
 })
-export class HomeComponent implements AfterViewInit {
+export class HomeComponent implements AfterViewInit, OnDestroy {
   constructor(
     public homeService: HomeService,
     private deviceDet: DeviceDetectorService,
     private metaTagService: Meta
-  ) {}
+  ){}
 
   private elements: HTMLCollectionOf<Element> = document.getElementsByClassName('container-fluid');
   protected images: Blob[] = [];
@@ -44,6 +48,10 @@ export class HomeComponent implements AfterViewInit {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { charset: 'UTF-8' }
     ])
+  }
+
+  ngOnDestroy(): void {
+    
   }
 
   details: { [key: number]: generalDetails} = {
@@ -108,7 +116,8 @@ export class HomeComponent implements AfterViewInit {
     },
     4: {
       header: 'CUSTOM',
-      img_num: false,
+      img_num: '5',
+      form: true,
       description: {
         p1: `
           We can help you to build your own counter drone antenna. Our team specialize in custom build antennas for different aplications for over 20 years now.
@@ -121,6 +130,9 @@ export class HomeComponent implements AfterViewInit {
   @ViewChildren("arrow")
   arrows: QueryList<ElementRef>;
 
+  @ViewChildren("sliderText")
+  sliderText: QueryList<ElementRef>;
+
   @ViewChild('machine_line')
   machine_line: ElementRef;
 
@@ -128,7 +140,9 @@ export class HomeComponent implements AfterViewInit {
   writeLine: ElementRef;
 
   async ngAfterViewInit(): Promise<void> {
-    this.homeService.init(this.writeLine, this.elements);
+
+    this.homeService.elements = this.elements;
+    this.homeService.writeLine = this.writeLine;
     
     merge(
       fromEvent( this.arrows.first.nativeElement, "click"),

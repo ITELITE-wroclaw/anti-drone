@@ -478,7 +478,7 @@ $img_sizes: 785px 452px, 770px 330px 670px 290px;
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1050px) {
   nav .logo {
     width: 200px;
   }
@@ -490,6 +490,12 @@ $img_sizes: 785px 452px, 770px 330px 670px 290px;
   .content {
     width: 93% !important;
     gap: 0px !important;
+
+    form{
+      mat-icon{
+        bottom: 0 !important;
+      }
+    }
 
     .box {
       .desc {
@@ -533,6 +539,7 @@ $img_sizes: 785px 452px, 770px 330px 670px 290px;
 
 @media (max-width: 650px) {
   .content {
+
     .particular_details {
       .box .antenna_image img {
         transform: translate(0);
@@ -558,7 +565,7 @@ $img_sizes: 785px 452px, 770px 330px 670px 290px;
   }
 }
 
-@media (max-width: 485px) {
+@media (max-width: 580px) {
   .content .image img {
     width: 72% !important;
     height: auto !important;

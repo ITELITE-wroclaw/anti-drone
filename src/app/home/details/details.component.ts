@@ -96,8 +96,6 @@ export class DetailsComponent implements AfterViewInit{
     });
 
     const result: any = requires.safeParse(mailForm.value);
-    console.log(mailForm)
-
     result.success? this.detailsService.customAntennaInquiry(mailForm.value, area): alert('Add name/company name and contact email');
   }
 

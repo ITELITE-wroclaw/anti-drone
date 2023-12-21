@@ -21,7 +21,7 @@
       </ng-template>
     </div>
 
-    <div *ngIf="details.value.img_num" class="image">
+    <div *ngIf="!details.value.form; else altImg" class="image">
       <img
         itemprop="image"
         ngSrc="{{ img || imagesPath + details.value.img_num + '.webp' }}"
@@ -30,6 +30,18 @@
         alt="Antenna photo."
       />
     </div>
+
+    <ng-template #altImg>
+      <div style="position: absolute; top: 40px;">
+        <img
+        itemprop="image"
+        src="./assets/images/home/content/content_5.png"
+        width="320px"
+        alt="Antenna photo."
+      />
+      </div>
+      
+    </ng-template>
     
     <div class="description">
       <h4>Description</h4>

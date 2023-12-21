@@ -1,8 +1,7 @@
-import { ElementRef, Injectable, ViewChild } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { data } from './paticularDetails';
 
 import gsap from 'gsap';
-import { NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
