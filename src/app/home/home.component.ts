@@ -1,5 +1,6 @@
 import {
   AfterViewInit,
+  ChangeDetectorRef,
   Component,
   Directive,
   ElementRef,
@@ -26,16 +27,68 @@ class sliderText{}
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  template: `<header>
-                <h1>ANTI DRONE SOLUTIONS</h1>
-             </header>`
+  template: `
+    <div class="text">
+      
+      <header>
+        <h1>Anti-Drone Antennas</h1>
+      </header>
+      
+      <p itemprop="description">
+        <span #sliderText class="machine_line_1">
+          Unlock the capabilities of anti-drone antennas in detecting and defending against unmanned aerial vehicles.
+          Explore how these advanced antennas play a crucial role in countering drones by disrupting their signals. 
+          Stay ahead of evolving threats with state-of-the-art counter-UAS technology, providing you with a robust defense system against unauthorized drone activities. 
+          Safeguard your airspace with the latest in drone detection and disruption.
+        </span>
+        <span #write_line class="write_line"> |</span>
+      </p>
+    </div>
+
+    <div class="text">
+    
+          <header>
+            <h1>Drone Jammer Technology</h1>
+          </header>
+          
+          <p itemprop="description">
+            <span #sliderText class="machine_line_2">
+              Discover the cutting-edge technology of drone jammers, designed to protect against unwanted UAV intrusions. 
+              Learn how these devices disrupt drone signals, providing a reliable solution for safeguarding your airspace from potential threats. 
+              Explore the latest advancements in counter-drone technology and ensure the security of your surroundings.
+            </span>
+            <span #write_line class="write_line"> |</span>
+          </p>
+    </div>
+      
+    <div class="text">
+      
+      <header>
+        <h1>Drone Defense Solutions - UAV</h1>
+      </header>
+      
+      <p itemprop="description">
+        <span #sliderText class="machine_line_3">
+          As drones become more prevalent, the need for effective counter-drone technology is paramount. 
+          Dive into the world of drone defense solutions and discover comprehensive approaches to protect your airspace. 
+          From RF interference for drones to sophisticated detection systems, explore a range of solutions designed to deter and neutralize unmanned aerial threats. 
+          Stay secure with innovative counter-UAS equipment tailored to safeguard your environment.
+        </span>
+        <span #write_line class="write_line"> |</span>
+      </p>
+    </div>
+  `
 })
 export class HomeComponent implements AfterViewInit, OnDestroy {
   constructor(
     public homeService: HomeService,
     private deviceDet: DeviceDetectorService,
-    private metaTagService: Meta
-  ){}
+    private metaTagService: Meta,
+    private changeDet: ChangeDetectorRef
+  ){
+    homeService.changeDet
+    .subscribe((e) => changeDet.detectChanges())
+  }
 
   private elements: HTMLCollectionOf<Element> = document.getElementsByClassName('container-fluid');
   protected images: Blob[] = [];

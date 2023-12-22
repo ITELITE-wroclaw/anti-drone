@@ -55,6 +55,11 @@ $content_text_margin_top: 30px;
       flex-basis: 33%;
     }
 
+    .alt_image{
+      position: absolute; 
+      top: 40px;
+    }
+
     .description{
       h4{
         font-size: 38px;
@@ -367,6 +372,7 @@ $content_text_margin_top: 30px;
     display: flex;
     flex-direction: column;
     margin: auto;
+    margin-top: 45px;
 
     h2{
       margin-bottom: 55px;

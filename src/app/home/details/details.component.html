@@ -32,7 +32,7 @@
     </div>
 
     <ng-template #altImg>
-      <div style="position: absolute; top: 40px;">
+      <div class="alt_image">
         <img
         itemprop="image"
         src="./assets/images/home/content/content_5.png"
@@ -224,7 +224,7 @@
     <mat-icon (click)="hideDetails()">close</mat-icon>
   </div>
 
-    <form *ngIf="properties && properties.form" #form="ngForm" (ngSubmit)="sendMail(form, area)" style="margin-top: 45px;">
+    <form *ngIf="properties && properties.form" #form="ngForm" (ngSubmit)="sendMail(form, area)">
 
       <label>*Name/Company</label>
       <input type="text" ngModel name="name">

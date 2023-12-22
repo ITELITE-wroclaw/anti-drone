@@ -10,6 +10,8 @@ $background: rgba(246, 248, 251, 1);
     position: relative;
     z-index: 1;
 
+    box-sizing: border-box;
+
     .news{
         width: 95%;
         position: relative;

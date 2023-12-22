@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
+import { ChangeDetectorRef, Injectable } from '@angular/core';
 import { TextPlugin, ScrollTrigger } from 'gsap/src/all';
 
 import gsap from "gsap";
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { NavigationEnd, Router } from '@angular/router';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -47,6 +48,7 @@ export class HomeService {
   animationList: GSAPAnimation[] = [];
 
   private route: boolean = true;
+  public changeDet: Subject<boolean> = new Subject<boolean>();
 
   public machineWritting(writeLine?)
   {
@@ -56,47 +58,47 @@ export class HomeService {
 
     let limit: number = 3;
 
-    const times = {
-      1: 27,
-      2: 8,
-      3: 8
-    }
-
     const textGather = {
-      1: `In today's rapidly advancing technological landscape, the demand for high-quality and advanced counter-drone solutions is paramount. 
-      As Unmanned Aerial Vehicles (UAVs) or drones proliferate across various applications, securing the airspace to protect your privacy becomes of utmost importance.
-      At ITELITE Antennas, boasting over two decades of experience in manufacturing microwave antennas, we specialize in crafting high-quality and advanced counter-drone arrays. 
-      Our dedication is to provide you with the coverage and assurance you need in the face of evolving UAV threats. 
-      Whether you require a customized solution or a ready-to-go anti-drone antenna system, our products are designed to meet the highest standards of quality and performance.`,
+      1: `Unlock the capabilities of anti-drone antennas in detecting and defending against unmanned aerial vehicles.
+       Explore how these advanced antennas play a crucial role in countering drones by disrupting their signals. 
+       Stay ahead of evolving threats with state-of-the-art counter-UAS technology, providing you with a robust defense system against unauthorized drone activities. 
+       Safeguard your airspace with the latest in drone detection and disruption.`,
 
-      2: `Explore our range of drone defense systems that go beyond traditional measures. 
-      Our anti-drone signal jammers provide a reliable defense against unauthorized UAV activities, offering peace of mind in sensitive areas.`,
+      2: `Discover the cutting-edge technology of drone jammers, designed to protect against unwanted UAV intrusions. 
+      Learn how these devices disrupt drone signals, providing a reliable solution for safeguarding your airspace from potential threats. 
+      Explore the latest advancements in counter-drone technology and ensure the security of your surroundings.`,
 
-      3: `Our solutions extend beyond mere protection – they redefine UAV defense.
-      From drone interference devices to anti-drone RF shielding, our technology ensures a robust shield against airborne intruders.`
+      3: `As drones become more prevalent, the need for effective counter-drone technology is paramount. 
+      Dive into the world of drone defense solutions and discover comprehensive approaches to protect your airspace. 
+      From RF interference for drones to sophisticated detection systems, explore a range of solutions designed to deter and neutralize unmanned aerial threats. 
+      Stay secure with innovative counter-UAS equipment tailored to safeguard your environment.`
     }
 
     return new Promise((resolve) => {
       function writeText(id: number)
       { 
         if(!this.route) return;
-        if(!this.slides[this.slides.findIndex((e) => e === id)]) return resolve(7900);
+        if(!this.slides[this.slides.findIndex((e) => e === id)]) return resolve(7700);
         
         this.process = gsap.to(".machine_line_"+id, 
         {
           text: {
             value: textGather[id]
           },
-          duration: times[id],
+          duration: 17,
           delay: 1,
           ease: "none"
         });
 
         this.animationList.push(this.process);
         this.process.then(() => {
+
           if(!this.route) return;
+
           this.slides.splice(this.slides.findIndex((e) => e === id), 1);
-          resolve(150);
+          this.changeDet.next(true);
+
+          resolve(1050);
         });
   
       }

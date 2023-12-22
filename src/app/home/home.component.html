@@ -1,17 +1,17 @@
-  <section>
+  <section itemscope itemtype="http://schema.org/Article">
 
     <div class="box">
       <div class="slider">
-        <img src="./assets/images/home/content/slider_2.png" alt="square image">
+        <img itemprop="image" src="./assets/images/home/content/slider_2.png" alt="square image">
   
         <div class="text">
     
           <header>
-            <h1>ANTI DRONE SOLUTIONS</h1>
+            <h1>ANTI-DRONE ANTENNAS</h1>
           </header>
           
           <p itemprop="description">
-            <span #sliderText class="machine_line_1">
+            <span #sliderText class="machine_line machine_line_1">
               
             </span>
             <span #write_line class="write_line"> |</span>
@@ -21,16 +21,16 @@
       </div>
   
       <div class="slider">
-        <img src="./assets/images/home/content/slider_1.png" alt="square image">
+        <img itemprop="image" src="./assets/images/home/content/slider_1.png" alt="square image">
   
         <div class="text">
     
           <header>
-            <h1>DRONE DEFENSE SYSTEMS</h1>
+            <h1>DRONE JAMMER TECHNOLOGY</h1>
           </header>
           
           <p itemprop="description">
-            <span #sliderText class="machine_line_2">
+            <span #sliderText class="machine_line machine_line_2">
               
             </span>
             <span #write_line class="write_line"> |</span>
@@ -40,7 +40,7 @@
       </div>
 
       <div class="slider">
-        <img src="./assets/images/home/content/slider_3.png" alt="square image">
+        <img itemprop="image" src="./assets/images/home/content/slider_3.png" alt="square image">
   
         <div class="text">
     
@@ -49,7 +49,7 @@
           </header>
           
           <p itemprop="description">
-            <span #sliderText class="machine_line_3">
+            <span #sliderText class="machine_line machine_line_3">
               
             </span>
             <span #write_line class="write_line"> |</span>
@@ -66,7 +66,7 @@
     <span class="line"></span>
   </section>
   
-  <div (onResize)="handleResize($event)" *ngFor="let e of [0, 1, 2, 3, 4];" class="container-fluid">
+  <div itemscope itemtype="https://schema.org/Product" (onResize)="handleResize($event)" *ngFor="let e of [0, 1, 2, 3, 4];" class="container-fluid">
     <app-details [details]="{value: details[e], id: e}" [images]="images[e]"></app-details>
   </div>
 
