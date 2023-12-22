@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, OnInit, Renderer2, RendererFactory2, ViewEncapsulation } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 
 import { Router } from '@angular/router';
@@ -18,12 +18,20 @@ import gsap from "gsap/gsap-core";
     <h1>ANTI DRONE SOLUTIONS</h1>
   </header>`
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
 
   title: string = 'anti-drone';
   itemLD = productLD;
+  private renderer: Renderer2;
+  
+  constructor( private router: Router, private metaService: Meta, private rendererFactory: RendererFactory2){
+    this.renderer = rendererFactory.createRenderer(null, null);
+  }
 
-  constructor( private router: Router, private metaService: Meta){}
+  ngAfterViewInit(): void {
+
+    document.querySelector("nav").style.width = `calc(100% - ${window.innerWidth - window.document.body.clientWidth}px)`;
+  }
 
   ngOnInit() {
     this.metaService.addTag({ name: 'json+ld', content: JSON.stringify(productLD) });

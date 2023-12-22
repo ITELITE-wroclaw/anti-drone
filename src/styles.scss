@@ -52,6 +52,7 @@ $anti-drone-theme: mat.define-light-theme(
 body{
   padding-top: 130px;
   position: relative;
+  overflow-y: scroll;
 }
 
 html,
@@ -74,6 +75,8 @@ body {
   }
 }
 
+$scrollWidth: 0;
+
 nav {
   padding-top: $nav-padding;
   background: $background;
@@ -85,7 +88,7 @@ nav {
   position: fixed;
 
   top: 0;
-  width: 100%;
+  width: $scrollWidth;
   z-index: 9;
 
   padding-bottom: 12px;

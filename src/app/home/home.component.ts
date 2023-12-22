@@ -1,6 +1,5 @@
 import {
   AfterViewInit,
-  ChangeDetectorRef,
   Component,
   Directive,
   ElementRef,
@@ -79,15 +78,12 @@ class sliderText{}
     </div>
   `
 })
-export class HomeComponent implements AfterViewInit, OnDestroy {
+export class HomeComponent implements AfterViewInit {
   constructor(
     public homeService: HomeService,
     private deviceDet: DeviceDetectorService,
-    private metaTagService: Meta,
-    private changeDet: ChangeDetectorRef
+    private metaTagService: Meta
   ){
-    homeService.changeDet
-    .subscribe((e) => changeDet.detectChanges())
   }
 
   private elements: HTMLCollectionOf<Element> = document.getElementsByClassName('container-fluid');
@@ -101,10 +97,6 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { charset: 'UTF-8' }
     ])
-  }
-
-  ngOnDestroy(): void {
-    
   }
 
   details: { [key: number]: generalDetails} = {

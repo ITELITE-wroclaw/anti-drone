@@ -116,7 +116,7 @@ section {
     header {
       position: relative;
 
-      h1 {
+      h1, h2 {
         position: relative;
         text-align: center;
         font-size: 68px;
@@ -184,7 +184,7 @@ section {
     width: 29px;
     text-align: inherit;
 
-    @for $i from 2 through 5 {
+    @for $i from 2 through 6 {
       .number:nth-of-type(#{$i}) {
         top: calc(($i - 2) * 30px);
       }
@@ -253,7 +253,7 @@ section {
     }
 
     header {
-      h1 {
+      h1, h2 {
         font-size: 40px;
       }
     }
