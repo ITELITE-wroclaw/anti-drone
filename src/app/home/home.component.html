@@ -83,7 +83,7 @@
     <span class="line"></span>
   </section>
   
-  <div itemscope itemtype="https://schema.org/Product" (onResize)="handleResize($event)" *ngFor="let e of [0, 1, 2, 3, 4];" class="container-fluid">
+  <div (onResize)="handleResize($event)" *ngFor="let e of [0, 1, 2, 3, 4];" class="container-fluid">
     <app-details [details]="{value: details[e], id: e}" [images]="images[e]"></app-details>
   </div>
 
