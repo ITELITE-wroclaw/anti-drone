@@ -1,5 +1,5 @@
 
-<div #content class="content content-{{ details?.id + 1 }}">
+<div itemprop="offers" #content class="content content-{{ details?.id + 1 }}">
 
   <div class="model">
     <h4 itemprop="name">
@@ -8,7 +8,7 @@
     </h4>
   </div>
 
-  <div #folder class="folder-view">
+  <div #folder class="folder-view" itemprop="availability" href="https://schema.org/InStock">
     <div class="text">
       
       <h5 *ngIf="isType(details.value.frequency, 'string'); else arrFreq">
