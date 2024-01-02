@@ -91,7 +91,7 @@ export class HomeService {
         this.process.then(() => {
           if(!this.route) return;
           this.slides.splice(this.slides.findIndex((e) => e === id), 1);
-          resolve(150);
+          resolve(750);
         });
   
       }

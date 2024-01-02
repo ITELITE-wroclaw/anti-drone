@@ -27,55 +27,90 @@ class sliderText{}
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   template: `
+      <section itemscope itemtype="http://schema.org/Article">
+
+<div class="box">
+  <div class="slider">
+    <img itemprop="image" src="./assets/images/home/content/slider_2.png" alt="square image">
+
     <div class="text">
-      
+
       <header>
-        <h1>Anti-Drone Antennas</h1>
+        <h1>ANTI-DRONE ANTENNAS</h1>
       </header>
       
       <p itemprop="description">
-        <span #sliderText class="machine_line_1">
+        <span #sliderText class="machine_line machine_line_1">
+        </span>
+        <span #write_line class="write_line"> |</span>
+        <span #sliderText class="hidden">
           Unlock the capabilities of anti-drone antennas in detecting and defending against unmanned aerial vehicles.
           Explore how these advanced antennas play a crucial role in countering drones by disrupting their signals. 
           Stay ahead of evolving threats with state-of-the-art counter-UAS technology, providing you with a robust defense system against unauthorized drone activities. 
           Safeguard your airspace with the latest in drone detection and disruption.
         </span>
-        <span #write_line class="write_line"> |</span>
+        
       </p>
     </div>
+    
+  </div>
+
+  <div class="slider">
+    <img itemprop="image" src="./assets/images/home/content/slider_1.png" alt="square image">
 
     <div class="text">
-    
-          <header>
-            <h1>Drone Jammer Technology</h1>
-          </header>
-          
-          <p itemprop="description">
-            <span #sliderText class="machine_line_2">
-              Discover the cutting-edge technology of drone jammers, designed to protect against unwanted UAV intrusions. 
-              Learn how these devices disrupt drone signals, providing a reliable solution for safeguarding your airspace from potential threats. 
-              Explore the latest advancements in counter-drone technology and ensure the security of your surroundings.
-            </span>
-            <span #write_line class="write_line"> |</span>
-          </p>
-    </div>
-      
-    <div class="text">
-      
+
       <header>
-        <h1>Drone Defense Solutions - UAV</h1>
+        <h2>DRONE JAMMER TECHNOLOGY</h2>
       </header>
       
       <p itemprop="description">
-        <span #sliderText class="machine_line_3">
+        <span #sliderText class="machine_line machine_line_2">
+        </span>
+        <span #write_line class="write_line"> |</span>
+        <span #sliderText class="hidden">
+          Discover the cutting-edge technology of drone jammers, designed to protect against unwanted UAV intrusions. 
+          Learn how these devices disrupt drone signals, providing a reliable solution for safeguarding your airspace from potential threats. 
+          Explore the latest advancements in counter-drone technology and ensure the security of your surroundings.
+        </span>
+        
+      </p>
+    </div>
+    
+  </div>
+
+  <div class="slider">
+    <img itemprop="image" src="./assets/images/home/content/slider_3.png" alt="square image">
+
+    <div class="text">
+
+      <header>
+        <h2>UAV PROTECTION</h2>
+      </header>
+      
+      <p itemprop="description">
+        <span #sliderText class="machine_line machine_line_3">
+        </span>
+        <span #write_line class="write_line"> |</span>
+        <span #sliderText class="hidden">
           As drones become more prevalent, the need for effective counter-drone technology is paramount. 
           Dive into the world of drone defense solutions and discover comprehensive approaches to protect your airspace. 
           From RF interference for drones to sophisticated detection systems, explore a range of solutions designed to deter and neutralize unmanned aerial threats. 
           Stay secure with innovative counter-UAS equipment tailored to safeguard your environment.
         </span>
-        <span #write_line class="write_line"> |</span>
+        
       </p>
     </div>
+    
+  </div>
+</div>
+
+
+<div #arrow data-id="0" class="slide previous"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="#ffffff" d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg></div>
+<div #arrow data-id="1" class="slide next"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="#ffffff" d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg></div>
+
+<span class="line"></span>
+</section>
   `
 })
 export class HomeComponent implements AfterViewInit {

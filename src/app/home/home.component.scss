@@ -45,6 +45,12 @@ section {
   display: flex;
   height: 643px;
 
+  .hidden{
+    visibility: hidden;
+    position: absolute;
+    left: 0;
+  }
+
   .slide{
     position: absolute;
     top: 50%;
