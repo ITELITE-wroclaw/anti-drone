@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Renderer2, RendererFactory2 } from '@angular/core';
 import { TextPlugin, ScrollTrigger } from 'gsap/src/all';
 
 import gsap from "gsap";
@@ -10,7 +10,12 @@ import { NavigationEnd, Router } from '@angular/router';
 })
 export class HomeService {
 
-  constructor(private deviceService: DeviceDetectorService, private router: Router){
+  private renderer: Renderer2
+
+  constructor(private deviceService: DeviceDetectorService, private router: Router, rendererFactory: RendererFactory2){
+
+    this.renderer = rendererFactory.createRenderer(null, null);
+
     function kill()
     {
       this.route = false;
@@ -189,9 +194,12 @@ export class HomeService {
 
   private scrollEvent()
   {
-    
+    const span = this.renderer.selectRootElement("#counter", true).getElementsByClassName("number");
+    const body = this.renderer.selectRootElement("body", true);
 
-    const span = document.getElementsByClassName("number");
+    console.log(span);
+    console.log(body);
+
     let currentElementID: number;
 
     function scrollAnim(id): boolean
@@ -208,11 +216,12 @@ export class HomeService {
       return false;
     };
 
-    const condition = (value: number) => 'value.y - window.innerHeight /'+value+' < document.body.scrollTop && (value.y - window.innerHeight / '+value+') + value.size > document.body.scrollTop';
+    const condition = (value: number) => 'value.y - window.innerHeight /'+value+' < body.scrollTop && (value.y - window.innerHeight / '+value+') + value.size > body.scrollTop';
 
-    document.body.addEventListener("scroll", () => {
+    body.addEventListener("scroll", () => {
 
       this.topProperties.every((value, id: number) => {
+
         if(window.innerWidth > 1000? eval(condition(2.2)): eval(condition(2)) ) return scrollAnim(id);
         return true;
       });

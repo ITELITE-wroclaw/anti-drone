@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Renderer2, RendererFactory2 } from '@angular/core';
 import { data } from './paticularDetails';
 
 import gsap from 'gsap';
@@ -12,7 +12,11 @@ export class DetailsService {
   private time;
   private flag: boolean = false;
 
-  constructor(private httpClient: HttpClient){}
+  private renderer: Renderer2;
+
+  constructor(private httpClient: HttpClient, private rendererFactory: RendererFactory2){
+    this.renderer = rendererFactory.createRenderer(null, null);
+  }
 
   gsapDetails(content: HTMLElement)
   {
@@ -99,6 +103,9 @@ export class DetailsService {
     let message = area.value.replaceAll("\n", "<br>");
     message = message.replaceAll("\t", '&nbsp;&nbsp;&nbsp;&nbsp;');
 
+    this.wasSend();
+
+    return;
     this.httpClient
       .post(
         'https://mail-service-4o2h.onrender.com/custom',
@@ -120,8 +127,8 @@ export class DetailsService {
 
   private wasSend()
   {
-
-    document.querySelector("form").innerHTML = "<h2>Your mail has been sent.</h2>";
+    const form = this.renderer.selectRootElement("form", true);
+    this.renderer.setProperty(form, "innerHTML", "<h2>Your mail has been sent.</h2>");
 
   }
 }

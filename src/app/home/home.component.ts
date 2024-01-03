@@ -3,8 +3,8 @@ import {
   Component,
   Directive,
   ElementRef,
-  OnDestroy,
   QueryList,
+  Renderer2,
   ViewChild,
   ViewChildren,
 } from '@angular/core';
@@ -117,11 +117,12 @@ export class HomeComponent implements AfterViewInit {
   constructor(
     public homeService: HomeService,
     private deviceDet: DeviceDetectorService,
-    private metaTagService: Meta
+    private metaTagService: Meta,
+    private renderer: Renderer2
   ){
   }
 
-  private elements: HTMLCollectionOf<Element> = document.getElementsByClassName('container-fluid');
+  private elements: HTMLCollectionOf<Element>;
   protected images: Blob[] = [];
 
  public ngOnInit(): void {
@@ -220,6 +221,7 @@ export class HomeComponent implements AfterViewInit {
   writeLine: ElementRef;
 
   async ngAfterViewInit(): Promise<void> {
+    this.elements =  this.renderer.selectRootElement('#items', true).getElementsByClassName(".container-fluid");
 
     this.homeService.elements = this.elements;
     this.homeService.writeLine = this.writeLine;

@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, Renderer2, RendererFactory2, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 
 import { Router } from '@angular/router';
@@ -22,15 +22,14 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   title: string = 'anti-drone';
   itemLD = productLD;
-  private renderer: Renderer2;
+
+  @ViewChild("nav")
+  navElement: ElementRef;
   
-  constructor( private router: Router, private metaService: Meta, private rendererFactory: RendererFactory2){
-    this.renderer = rendererFactory.createRenderer(null, null);
-  }
+  constructor( private router: Router, private metaService: Meta, private renderer: Renderer2){}
 
   ngAfterViewInit(): void {
-
-    document.querySelector("nav").style.width = `calc(100% - ${window.innerWidth - window.document.body.clientWidth}px)`;
+    this.renderer.setStyle(this.navElement.nativeElement, "width", `calc(100% - ${window.innerWidth - this.renderer.selectRootElement("body", true).clientWidth}px)`);
   }
 
   ngOnInit() {
@@ -38,7 +37,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     gsap.registerPlugin(ScrollToPlugin);
     gsap.registerPlugin(TextPlugin);
 
-    this.router.events.subscribe( (e) => document.body.scroll({top: 0}) );
+    this.router.events.subscribe( (e) => this.renderer.selectRootElement("body", true).scroll({top: 0}) );
   }
 
   navigateToProducts(data: string)
@@ -49,13 +48,12 @@ export class AppComponent implements OnInit, AfterViewInit {
         switch(data)
         {
           case "/":
-            gsap.to(document.body, {scrollTo: ".container-fluid", duration: 1});
+            gsap.to(this.renderer.selectRootElement("body", true), {scrollTo: ".container-fluid", duration: 1});
           break;
           case "custom":
-            gsap.to(document.body, {scrollTo: ".container-fluid:nth-of-type(5)", duration: 1})
+            gsap.to(this.renderer.selectRootElement("body", true), {scrollTo: ".container-fluid:nth-of-type(5)", duration: 1})
           break;
         }
-        
         
       }
     );
