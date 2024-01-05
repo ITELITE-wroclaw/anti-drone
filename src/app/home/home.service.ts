@@ -1,7 +1,6 @@
 import { Injectable, Renderer2, RendererFactory2 } from '@angular/core';
-import { TextPlugin, ScrollTrigger } from 'gsap/src/all';
-
 import gsap from "gsap";
+
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { NavigationEnd, Router } from '@angular/router';
 
@@ -52,68 +51,12 @@ export class HomeService {
 
   private route: boolean = true;
 
-  public machineWritting(writeLine?)
-  {
-
-    gsap.registerPlugin(TextPlugin);
-    gsap.registerPlugin(ScrollTrigger);
-
-    let limit: number = 3;
-
-    const textGather = {
-      1: `Unlock the capabilities of anti-drone antennas in detecting and defending against unmanned aerial vehicles.
-      Explore how these advanced antennas play a crucial role in countering drones by disrupting their signals. 
-      Stay ahead of evolving threats with state-of-the-art counter-UAS technology, providing you with a robust defense system against unauthorized drone activities. 
-      Safeguard your airspace with the latest in drone detection and disruption.`,
-
-      2: `Discover the cutting-edge technology of drone jammers, designed to protect against unwanted UAV intrusions. 
-      Learn how these devices disrupt drone signals, providing a reliable solution for safeguarding your airspace from potential threats. 
-      Explore the latest advancements in counter-drone technology and ensure the security of your surroundings.`,
-
-      3: `As drones become more prevalent, the need for effective counter-drone technology is paramount. 
-      Dive into the world of drone defense solutions and discover comprehensive approaches to protect your airspace. 
-      From RF interference for drones to sophisticated detection systems, explore a range of solutions designed to deter and neutralize unmanned aerial threats. 
-      Stay secure with innovative counter-UAS equipment tailored to safeguard your environment.`
-    }
-
-    return new Promise((resolve) => {
-      function writeText(id: number)
-      { 
-        if(!this.route) return;
-        if(!this.slides[this.slides.findIndex((e) => e === id)]) return resolve(7900);
-        
-        this.process = gsap.to(".machine_line_"+id, 
-        {
-          text: {
-            value: textGather[id]
-          },
-          duration: 18,
-          delay: 1,
-          ease: "none"
-        });
-
-        this.animationList.push(this.process);
-        this.process.then(() => {
-          if(!this.route) return;
-          this.slides.splice(this.slides.findIndex((e) => e === id), 1);
-          resolve(750);
-        });
-  
-      }
-
-      writeText.call(this, this.currentImg);
-    });
-
-  }
-
   private autoSlider(id: number, writeLine)
   {
     
     if(this.animationList.length) this.animationList = [];
     async function timeout()
     {
-
-      const res = await this.machineWritting(writeLine);
       this.interval = setTimeout( async() => {
 
         if(id !== this.currentImg) return;
@@ -124,7 +67,7 @@ export class HomeService {
         if(id > this.imageLen) id = 1;
   
         if(this.route) timeout.call(this);
-      }, res);
+      }, 8300);
     }
 
     timeout.call(this);
@@ -150,27 +93,6 @@ export class HomeService {
     .delay(.5);
     
     if(this.deviceService.isMobile() || this.deviceService.isTablet()) return;
-
-    Array.from(elements)
-    .forEach((e: HTMLElement) => {
-      gsap.fromTo(e.querySelector(".content"),
-        {
-          y: '-=100',
-          opacity: 0
-        },
-        {
-          y: 0,
-          opacity: 1,
-          stagger: 0.2,
-          duration: 1,
-          ease: 'easeInOut', 
-          scrollTrigger: {
-            trigger: e,
-            start: '-40% 20%',
-          }
-        }
-      );  
-    })
 
     this.setSizes(elements);
   }

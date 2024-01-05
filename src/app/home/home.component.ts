@@ -16,105 +16,77 @@ import { DeviceDetectorService } from 'ngx-device-detector';
 import { Meta } from '@angular/platform-browser';
 import { fromEvent, map, merge } from 'rxjs';
 
-@Directive({selector: "arrow"})
-class Arrow{}
+@Directive({ selector: 'arrow' })
+class Arrow {}
 
-@Directive({selector: "sliderText"})
-class sliderText{}
+@Directive({ selector: 'sliderText' })
+class sliderText {}
 
-@Directive({selector: "container"})
-class container{}
+@Directive({ selector: 'container' })
+class container {}
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   template: `
-      <section itemscope itemtype="http://schema.org/Article">
-
-<div class="box">
-  <div class="slider">
-    <img itemprop="image" src="./assets/images/home/content/slider_2.png" alt="square image">
-
-    <div class="text">
-
-      <header>
-        <h1>ANTI-DRONE ANTENNAS</h1>
-      </header>
-      
-      <p itemprop="description">
-        <span #sliderText class="machine_line machine_line_1">
-        </span>
-        <span #write_line class="write_line"> |</span>
-        <span #sliderText class="hidden">
-          Unlock the capabilities of anti-drone antennas in detecting and defending against unmanned aerial vehicles.
-          Explore how these advanced antennas play a crucial role in countering drones by disrupting their signals. 
-          Stay ahead of evolving threats with state-of-the-art counter-UAS technology, providing you with a robust defense system against unauthorized drone activities. 
-          Safeguard your airspace with the latest in drone detection and disruption.
-        </span>
-        
-      </p>
-    </div>
+   <div class="box">
+      <div class="slider">
+        <img itemprop="image" srcset="{{img_path}}slider_2_phone.webp 870w, {{img_path}}slider_2.webp 1153w" sizes="(max-width: 880px) 870px, 1153px" alt="Factory stands after lake.">
+  
+        <div class="text">
     
-  </div>
-
-  <div class="slider">
-    <img itemprop="image" src="./assets/images/home/content/slider_1.png" alt="square image">
-
-    <div class="text">
-
-      <header>
-        <h2>DRONE JAMMER TECHNOLOGY</h2>
-      </header>
-      
-      <p itemprop="description">
-        <span #sliderText class="machine_line machine_line_2">
-        </span>
-        <span #write_line class="write_line"> |</span>
-        <span #sliderText class="hidden">
-          Discover the cutting-edge technology of drone jammers, designed to protect against unwanted UAV intrusions. 
-          Learn how these devices disrupt drone signals, providing a reliable solution for safeguarding your airspace from potential threats. 
-          Explore the latest advancements in counter-drone technology and ensure the security of your surroundings.
-        </span>
+          <header>
+            <h1>ANTI-DRONE ANTENNAS</h1>
+          </header>
+          
+          <p itemprop="description">
+            <span #sliderText class="machine_line machine_line_1">
+            Unlock the full potential of anti-drone antennas, designed for detecting and defending against unmanned aerial vehicles (UAVs). Explore the intricate role these advanced antennas play in countering drones by skillfully disrupting their signals. Stay ahead of evolving threats with state-of-the-art counter-UAS technology, providing a robust defense system against unauthorized drone activities. Safeguard your airspace with the latest innovations in drone detection and disruption, including powerful RF-based anti-drone antennas.
+            </span>
+            
+          </p>
+        </div>
         
-      </p>
-    </div>
+      </div>
+  
+      <div class="slider">
+        <img itemprop="image" srcset="{{img_path}}slider_1_phone.webp 870w, {{img_path}}slider_1.webp 1153w" sizes="(max-width: 880px) 870px, 1153px" alt="Square with parking trucks.">
+  
+        <div class="text">
     
-  </div>
-
-  <div class="slider">
-    <img itemprop="image" src="./assets/images/home/content/slider_3.png" alt="square image">
-
-    <div class="text">
-
-      <header>
-        <h2>UAV PROTECTION</h2>
-      </header>
-      
-      <p itemprop="description">
-        <span #sliderText class="machine_line machine_line_3">
-        </span>
-        <span #write_line class="write_line"> |</span>
-        <span #sliderText class="hidden">
-          As drones become more prevalent, the need for effective counter-drone technology is paramount. 
-          Dive into the world of drone defense solutions and discover comprehensive approaches to protect your airspace. 
-          From RF interference for drones to sophisticated detection systems, explore a range of solutions designed to deter and neutralize unmanned aerial threats. 
-          Stay secure with innovative counter-UAS equipment tailored to safeguard your environment.
-        </span>
+          <header>
+            <h2>DRONE JAMMER TECHNOLOGY</h2>
+          </header>
+          
+          <p itemprop="description">
+            <span #sliderText class="machine_line machine_line_2">
+            Discover the cutting-edge technology of drone jammers, precisely engineered to protect against unwanted UAV intrusions. Learn how these devices adeptly disrupt drone signals, offering a reliable solution for safeguarding your airspace from potential threats. Explore the latest advancements in counter-drone technology, ensuring the security of your surroundings. Uncover the effectiveness of anti-drone signal jamming, contributing to comprehensive UAV protection.
+          </span>
+          </p>
+        </div>
         
-      </p>
-    </div>
+      </div>
+
+      <div class="slider">
+        <img itemprop="image" srcset="{{img_path}}slider_3_phone.webp 870w, {{img_path}}slider_3.webp 1153w" sizes="(max-width: 880px) 870px, 1153px" alt="Boat is swimming via sea and in the background haven is visible.">
+  
+        <div class="text">
     
-  </div>
-</div>
-
-
-<div #arrow data-id="0" class="slide previous"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="#ffffff" d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg></div>
-<div #arrow data-id="1" class="slide next"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="#ffffff" d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg></div>
-
-<span class="line"></span>
-</section>
-  `
+          <header>
+            <h2>UAV PROTECTION</h2>
+          </header>
+          
+          <p itemprop="description">
+            <span #sliderText class="machine_line machine_line_3">
+            As drones become more prevalent, the necessity for effective counter-drone technology is paramount. Dive into the world of drone defense solutions and uncover comprehensive approaches to protect your airspace. From RF interference tailored for drones to sophisticated detection systems, explore a diverse range of solutions designed to deter and neutralize unmanned aerial threats. Stay secure with innovative counter-UAS equipment, precisely tailored to safeguard your environment and ensure uncompromised UAV protection.
+            </span>
+            
+          </p>
+        </div>
+        
+      </div>
+    </div>`,
 })
 export class HomeComponent implements AfterViewInit {
   constructor(
@@ -122,26 +94,18 @@ export class HomeComponent implements AfterViewInit {
     private deviceDet: DeviceDetectorService,
     private metaTagService: Meta,
     private renderer: Renderer2
-  ){}
+  ) {}
 
   private elements: HTMLCollectionOf<Element>;
   protected images: Blob[] = [];
 
-  protected img_path: string = "./assets/images/home/content/";
-  @ViewChildren("container")
-  container
+  protected img_path: string = './assets/images/home/content/';
+  @ViewChildren('container')
+  container;
 
- public ngOnInit(): void {
-    this.metaTagService.addTags([
-      {name: "keywords", content: "anti drone antennas, anti drone, anti drone antenna, counter drone antennas, drone jammers antennas, counter uav antennas, ant uav antennas, drone dome, airspace security, drone protection"},
-      { name: 'robots', content: 'index, follow' },
-      { name: 'author', content: 'Łukasz Trzepadłek' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { charset: 'UTF-8' }
-    ])
-  }
+  public ngOnInit(): void {}
 
-  details: { [key: number]: generalDetails} = {
+  details: { [key: number]: generalDetails } = {
     0: {
       header: 'ADAS 1.1 O',
       img_num: '1',
@@ -156,7 +120,7 @@ export class HomeComponent implements AfterViewInit {
           On the other hand, the PAT2450G10 gain is 9-10 dBi.
           This antenna system is designed for covering a wide range of frequencies with consistency in gain and beamwidth and providing 360 degrees of coverage. 
           The system is divided into 4 quadrants, each quadrant containing a vertically polarized antenna, covering 433MHz to 6GHz.
-        `
+        `,
       },
     },
     1: {
@@ -168,8 +132,8 @@ export class HomeComponent implements AfterViewInit {
         The gain and radiation pattern are quite stable within all the operational antenna’s bandwidth.`,
         p2: `The polarization is linear and by rotating the antenna you can set the polarization to H, V or slant polarization.
         This antenna system is designed for covering a wide range of frequencies with consistency in gain and beamwidth and providing 360 degrees of coverage. 
-        The system is divided into 4 quadrants, each quadrant containing a vertically polarized antenna, covering 400MHz to 7.2GHz.`
-      }
+        The system is divided into 4 quadrants, each quadrant containing a vertically polarized antenna, covering 400MHz to 7.2GHz.`,
+      },
     },
     2: {
       header: 'ADAS 1.1 D',
@@ -178,12 +142,12 @@ export class HomeComponent implements AfterViewInit {
       description: {
         p1: `
           This is a compact microstrip directive LPD antenna covering from 400MHz up to 6GHz.
-          The gain and radiation pattern are quite stable within all the operational antenna’s bandwidth.`, 
+          The gain and radiation pattern are quite stable within all the operational antenna’s bandwidth.`,
         p2: `
           The polarization is linear and by rotating the antenna you can set the polarization to H, V or slant polarization.
           The antenna is made up using 2 sub-antennas combined with a diplexer, providing a smooth and uniform response.
           This is a compact microstrip directive Vivaldi antenna covering from 400MHz up to 6GHz with a gain of up to 12 dBi. 
-          The polarization is dual linear and by rotating the antenna you can set the polarization to H&V or slant polarization.`
+          The polarization is dual linear and by rotating the antenna you can set the polarization to H&V or slant polarization.`,
       },
     },
     3: {
@@ -198,8 +162,8 @@ export class HomeComponent implements AfterViewInit {
         p2: `
           The gain and radiation pattern are quite stable within all the operational antenna’s bandwidth. 
           The polarization is linear and by rotating the antenna you can set the polarization to H, V or slant polarization. 
-          `
-      }
+          `,
+      },
     },
     4: {
       header: 'CUSTOM',
@@ -209,15 +173,15 @@ export class HomeComponent implements AfterViewInit {
         p1: `
           We can help you to build your own counter drone antenna. Our team specialize in custom build antennas for different aplications for over 20 years now.
           We custom everything from the antenna through housing mounting to connectors.
-          `
-      }
+          `,
+      },
     },
   };
 
-  @ViewChildren("arrow")
+  @ViewChildren('arrow')
   arrows: QueryList<ElementRef>;
 
-  @ViewChildren("sliderText")
+  @ViewChildren('sliderText')
   sliderText: QueryList<ElementRef>;
 
   @ViewChild('machine_line')
@@ -227,40 +191,47 @@ export class HomeComponent implements AfterViewInit {
   writeLine: ElementRef;
 
   async ngAfterViewInit(): Promise<void> {
-    this.elements =  this.renderer.selectRootElement('#items', true).getElementsByClassName(".container-fluid");
+    this.elements = this.renderer
+      .selectRootElement('#items', true)
+      .getElementsByClassName('.container-fluid');
 
     this.homeService.elements = this.elements;
     this.homeService.writeLine = this.writeLine;
-    
+
     merge(
-      fromEvent( this.arrows.first.nativeElement, "click"),
-      fromEvent( this.arrows.last.nativeElement, "click")
+      fromEvent(this.arrows.first.nativeElement, 'click'),
+      fromEvent(this.arrows.last.nativeElement, 'click')
     )
-    .pipe(
-      map( async(e: {target: HTMLElement}) => {
+      .pipe(
+        map(async (e: { target: HTMLElement }) => {
+          function getProperElement(
+            element: HTMLElement
+          ): Promise<{ target: HTMLElement }> {
+            return new Promise(async (resolve) => {
+              if (element.hasAttribute('data-id'))
+                return resolve({ target: element });
+              resolve(await getProperElement(element.parentElement));
+            });
+          }
 
-        function getProperElement(element: HTMLElement): Promise<{target: HTMLElement}>
-        {
-          return new Promise(async (resolve) => {
-
-            if(element.hasAttribute("data-id")) return resolve({target: element});
-            resolve(await getProperElement(element.parentElement));
-          });
-        }
-
-        return await getProperElement(e.target);
-      })
-    )
-    .subscribe((e: Promise<{target: HTMLElement}>) => {
-      e.then((result: {target: HTMLElement}) => {
-        this.homeService.slider( Number(result.target.getAttribute("data-id")), true )
-      })
-     
-    })
+          return await getProperElement(e.target);
+        })
+      )
+      .subscribe((e: Promise<{ target: HTMLElement }>) => {
+        e.then((result: { target: HTMLElement }) => {
+          this.homeService.slider(
+            Number(result.target.getAttribute('data-id')),
+            true
+          );
+        });
+      });
   }
 
   handleResize(event) {
     this.container;
-    if(this.elements) this.homeService.setSizes(this.container._results.map(e => e.nativeElement));
+    if (this.elements)
+      this.homeService.setSizes(
+        this.container._results.map((e) => e.nativeElement)
+      );
   }
 }
