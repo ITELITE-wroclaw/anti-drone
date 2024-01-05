@@ -85,7 +85,6 @@ export class ContactComponent {
     let message = this.area.nativeElement.value.replaceAll("\n", "<br>");
     message = message.replaceAll("\t", '&nbsp;&nbsp;&nbsp;&nbsp;');
     
-    
     this.httpClient
       .post(
         'https://mail-service-4o2h.onrender.com/contact',

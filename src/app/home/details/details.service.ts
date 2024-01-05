@@ -103,9 +103,6 @@ export class DetailsService {
     let message = area.value.replaceAll("\n", "<br>");
     message = message.replaceAll("\t", '&nbsp;&nbsp;&nbsp;&nbsp;');
 
-    this.wasSend();
-
-    return;
     this.httpClient
       .post(
         'https://mail-service-4o2h.onrender.com/custom',
