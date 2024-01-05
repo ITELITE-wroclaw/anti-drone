@@ -177,7 +177,8 @@ export class HomeService {
 
   public setSizes(elements)
   {
-    if(!(elements instanceof HTMLCollection)) return;
+
+    if(!(elements instanceof Array)) return;
     this.topProperties = [];
     
     Array.from(elements)
@@ -196,9 +197,6 @@ export class HomeService {
   {
     const span = this.renderer.selectRootElement("#counter", true).getElementsByClassName("number");
     const body = this.renderer.selectRootElement("body", true);
-
-    console.log(span);
-    console.log(body);
 
     let currentElementID: number;
 

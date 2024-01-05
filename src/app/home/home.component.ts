@@ -22,6 +22,9 @@ class Arrow{}
 @Directive({selector: "sliderText"})
 class sliderText{}
 
+@Directive({selector: "container"})
+class container{}
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -119,11 +122,14 @@ export class HomeComponent implements AfterViewInit {
     private deviceDet: DeviceDetectorService,
     private metaTagService: Meta,
     private renderer: Renderer2
-  ){
-  }
+  ){}
 
   private elements: HTMLCollectionOf<Element>;
   protected images: Blob[] = [];
+
+  protected img_path: string = "./assets/images/home/content/";
+  @ViewChildren("container")
+  container
 
  public ngOnInit(): void {
     this.metaTagService.addTags([
@@ -254,6 +260,7 @@ export class HomeComponent implements AfterViewInit {
   }
 
   handleResize(event) {
-    this.homeService.setSizes(this.elements);
+    this.container;
+    if(this.elements) this.homeService.setSizes(this.container._results.map(e => e.nativeElement));
   }
 }

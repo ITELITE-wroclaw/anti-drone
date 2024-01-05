@@ -2,7 +2,7 @@
 
     <div class="box">
       <div class="slider">
-        <img itemprop="image" src="./assets/images/home/content/slider_2.webp" alt="square image">
+        <img itemprop="image" srcset="{{img_path}}slider_2_phone.webp 870w, {{img_path}}slider_2.webp 1153w" sizes="(max-width: 880px) 870px, 1153px" alt="Factory stands after lake.">
   
         <div class="text">
     
@@ -27,7 +27,7 @@
       </div>
   
       <div class="slider">
-        <img itemprop="image" src="./assets/images/home/content/slider_1.webp" alt="square image">
+        <img itemprop="image" srcset="{{img_path}}slider_1_phone.webp 870w, {{img_path}}slider_1.webp 1153w" sizes="(max-width: 880px) 870px, 1153px" alt="Square with parking trucks.">
   
         <div class="text">
     
@@ -51,7 +51,7 @@
       </div>
 
       <div class="slider">
-        <img itemprop="image" src="./assets/images/home/content/slider_3.webp" alt="square image">
+        <img itemprop="image" srcset="{{img_path}}slider_3_phone.webp 870w, {{img_path}}slider_3.webp 1153w" sizes="(max-width: 880px) 870px, 1153px" alt="Boat is swimming via sea and in the background haven is visible.">
   
         <div class="text">
     
@@ -84,7 +84,7 @@
   </section>
   
   <div id="items">
-    <div (onResize)="handleResize($event)" *ngFor="let e of [0, 1, 2, 3, 4];" class="container-fluid">
+    <div (onResize)="handleResize($event)" #container *ngFor="let e of [0, 1, 2, 3, 4];" class="container-fluid">
       <app-details [details]="{value: details[e], id: e}" [images]="images[e]"></app-details>
     </div>
   </div>
