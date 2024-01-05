@@ -24,6 +24,7 @@
     <div *ngIf="!details.value.form; else altImg" class="image">
       <img
         itemprop="image"
+        title="Antenna image"
         ngSrc="{{ img || imagesPath + details.value.img_num + '.webp' }}"
         width="{{ sizes[details.id][0] }}"
         height="{{ sizes[details.id][1] }}"
@@ -35,6 +36,7 @@
       <div class="alt_image">
         <img
         itemprop="image"
+        title="Antenna image"
         srcset="./assets/images/home/content/content_5.webp"
         width="320px"
         alt="Antenna photo."
@@ -201,6 +203,7 @@
       <div>
         <img
           itemprop="image"
+          title="Chart with realized gain."
           ngSrc="{{ properties.charts[0] }}.webp"
           width="650"
           height="366"
@@ -212,6 +215,7 @@
       <div *ngIf="properties.charts[1]">
         <img
           itemprop="image"
+          title="Chart with realized gain."
           ngSrc="{{ properties.charts[1] }}.webp"
           width="650"
           height="366"
