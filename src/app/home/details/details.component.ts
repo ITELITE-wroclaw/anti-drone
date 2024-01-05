@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Input, Output, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Input, Output, Renderer2, ViewChild } from '@angular/core';
 import { fromEvent } from 'rxjs/internal/observable/fromEvent';
 
 import { imagesPath } from '@app/path';
@@ -22,7 +22,8 @@ export class DetailsComponent implements AfterViewInit{
   constructor(
     private changeDetRef: ChangeDetectorRef,
     private detailsService: DetailsService,
-    private deviceDet: DeviceDetectorService
+    private deviceDet: DeviceDetectorService,
+    private renderer: Renderer2
   ){}
 
   protected img;
@@ -71,15 +72,20 @@ export class DetailsComponent implements AfterViewInit{
   hideDetails(): void
   {
     this.properties = null;
-    this.button.nativeElement.style.display = "block";
 
-    this.folder.nativeElement.style.overflow = "hidden";
-    this.cover.nativeElement.style.opacity = "1";
+    const button = this.button.nativeElement;
+    const folder = this.folder.nativeElement;
+    const cover = this.cover.nativeElement;
 
-    this.folder.nativeElement.style.maxHeight = "450px"
-    this.folder.nativeElement.style.height = "none"
+    this.renderer.setStyle(button, "display", "block");
+    this.renderer.setStyle(folder, "overflow", "hidden");
 
-    this.button.nativeElement.style.opacity = 1;
+    this.renderer.setStyle(cover, "opacity", "1");
+    this.renderer.setStyle(folder, "maxHeight", "450px");
+
+    this.renderer.setStyle(folder, "height", "none");
+    this.renderer.setStyle(button, "opacity", "1");
+
     this.changeDetRef.detectChanges();
   }
   
