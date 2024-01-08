@@ -32,17 +32,21 @@ class container {}
   template: `
    <div class="box">
       <div class="slider">
-        <img itemprop="image" srcset="{{img_path}}slider_2_phone.webp 870w, {{img_path}}slider_2.webp 1153w" sizes="(max-width: 880px) 870px, 1153px" alt="Factory stands after lake.">
+        <img itemprop="image" title="Factory image" srcset="{{img_path}}slider_2_phone.webp 870w, {{img_path}}slider_2.webp 1153w" sizes="(max-width: 880px) 870px, 1153px" alt="Factory stands after lake.">
   
         <div class="text">
     
           <header>
-            <h1>ANTI-DRONE ANTENNAS</h1>
+            <h1>COUNTER UAV</h1>
           </header>
           
           <p itemprop="description">
             <span #sliderText class="machine_line machine_line_1">
-            Unlock the full potential of anti-drone antennas, designed for detecting and defending against unmanned aerial vehicles (UAVs). Explore the intricate role these advanced antennas play in countering drones by skillfully disrupting their signals. Stay ahead of evolving threats with state-of-the-art counter-UAS technology, providing a robust defense system against unauthorized drone activities. Safeguard your airspace with the latest innovations in drone detection and disruption, including powerful RF-based anti-drone antennas.
+              &nbsp;Unlock the full potential of counter UAV antennas, designed for defending against drones by our anti drone defense antennas and 
+              explore the intricate role these advanced antennas play in countering drones by skillfully disrupting their signals. 
+              <br>
+              &nbsp;Stay ahead of evolving threats with state-of-the-art counter-UAV, providing a robust drone solution against drone activities. 
+              Safeguard your airspace with the latest innovations in drone disruption, including powerful jammer antennas which provide protection counter drone.
             </span>
             
           </p>
@@ -51,42 +55,50 @@ class container {}
       </div>
   
       <div class="slider">
-        <img itemprop="image" srcset="{{img_path}}slider_1_phone.webp 870w, {{img_path}}slider_1.webp 1153w" sizes="(max-width: 880px) 870px, 1153px" alt="Square with parking trucks.">
+        <img itemprop="image" title="Photo of truck parking from drone perspective" srcset="{{img_path}}slider_1_phone.webp 870w, {{img_path}}slider_1.webp 1153w" sizes="(max-width: 880px) 870px, 1153px" alt="Square with parking trucks.">
   
         <div class="text">
     
           <header>
-            <h2>DRONE JAMMER TECHNOLOGY</h2>
+            <h2>JAMMER ANTENNA</h2>
           </header>
           
           <p itemprop="description">
             <span #sliderText class="machine_line machine_line_2">
-            Discover the cutting-edge technology of drone jammers, precisely engineered to protect against unwanted UAV intrusions. Learn how these devices adeptly disrupt drone signals, offering a reliable solution for safeguarding your airspace from potential threats. Explore the latest advancements in counter-drone technology, ensuring the security of your surroundings. Uncover the effectiveness of anti-drone signal jamming, contributing to comprehensive UAV protection.
-          </span>
+              &nbsp;&nbsp;&nbsp;&nbsp;Discover the cutting-edge drone jammer antennas, precisely engineered to protect against UAV intrusions. 
+              Learn how these devices adeptly disrupt drone signals, offering a reliable counter drone solution for safeguarding your airspace from potential threats. 
+              <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;Explore the latest advancements in counter-drone technology, ensuring drone solution. 
+              Uncover the effectiveness of jammer antennas, contributing to comprehensive counter UAV protection.
+            </span>
+            
           </p>
         </div>
         
       </div>
 
       <div class="slider">
-        <img itemprop="image" srcset="{{img_path}}slider_3_phone.webp 870w, {{img_path}}slider_3.webp 1153w" sizes="(max-width: 880px) 870px, 1153px" alt="Boat is swimming via sea and in the background haven is visible.">
+        <img itemprop="image" title="Sea photo" srcset="{{img_path}}slider_3_phone.webp 870w, {{img_path}}slider_3.webp 1153w" sizes="(max-width: 880px) 870px, 1153px" alt="Boat is swimming via sea and in the background haven is visible.">
   
         <div class="text">
     
           <header>
-            <h2>UAV PROTECTION</h2>
+            <h2>UAV SOLUTION</h2>
           </header>
           
           <p itemprop="description">
             <span #sliderText class="machine_line machine_line_3">
-            As drones become more prevalent, the necessity for effective counter-drone technology is paramount. Dive into the world of drone defense solutions and uncover comprehensive approaches to protect your airspace. From RF interference tailored for drones to sophisticated detection systems, explore a diverse range of solutions designed to deter and neutralize unmanned aerial threats. Stay secure with innovative counter-UAS equipment, precisely tailored to safeguard your environment and ensure uncompromised UAV protection.
+              &nbsp;&nbsp;&nbsp;&nbsp;As drones become more prevalent, the necessity for effective anti drone defense is paramount. 
+              Dive into the world of drone detection system and uncover comprehensive approaches to protect your airspace and provide counter UAV solution. 
+              <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;Explore a diverse range of counter-drone antennas designed to deter and neutralize unmanned aerial threats. 
+              Stay secure with innovative anti drone defense, precisely tailored to safeguard your environment and ensure uncompromised counter drone solution.
             </span>
             
           </p>
         </div>
         
-      </div>
-    </div>`,
+      </div>`,
 })
 export class HomeComponent implements AfterViewInit {
   constructor(
