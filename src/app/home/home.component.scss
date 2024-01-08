@@ -263,8 +263,12 @@ section {
 
     header {
       h1, h2 {
-        font-size: 40px;
+        font-size: 24px !important;
       }
+    }
+
+    p span{
+      font-size: 17px !important;
     }
   }
 }
