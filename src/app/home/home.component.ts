@@ -45,8 +45,8 @@ class container {}
               &nbsp;Unlock the full potential of counter UAV antennas, designed for defending against drones by our anti drone defense antennas and 
               explore the intricate role these advanced antennas play in countering drones by skillfully disrupting their signals. 
               <br>
-              &nbsp;Stay ahead of evolving threats with state-of-the-art counter-UAV, providing a robust drone solution against drone activities. 
-              Safeguard your airspace with the latest innovations in drone disruption, including powerful jammer antennas which provide protection counter drone.
+              &nbsp;Stay ahead of evolving threats with state-of-the-art counter-UAV, providing a robust drone solution by drone jammer antenna. 
+              Safeguard your airspace with the latest innovations in anti drone disruption, including powerful jammer antennas which provide protection counter drone.
             </span>
             
           </p>
@@ -60,7 +60,7 @@ class container {}
         <div class="text">
     
           <header>
-            <h2>JAMMER ANTENNA</h2>
+            <h2>DRONE JAMMER ANTENNA</h2>
           </header>
           
           <p itemprop="description">
@@ -125,13 +125,13 @@ export class HomeComponent implements AfterViewInit {
       frequency: '433MHz – 1.3GHz, 2.4GHz – 2.5GHz , 5.1GHz – 6GHz',
       description: {
         p1: `
-          Using these 2 antennas, you can build a system covering different sectors for bands 433MHz to 1.3GHz (PAT0413G5) and from 2.4GHz to 6GHz (PAT2450G10).
+          Using these 2 counter drone antennas, you can build a drone jammer system covering different sectors for bands 433MHz to 1.3GHz (PAT0413G5) and from 2.4GHz to 6GHz (PAT2450G10).
           antenna is vertically polarized.
         `,
         p2: `
           The PAT0413G5 gain is in the range of 3.4 – 8.7dBi.
           On the other hand, the PAT2450G10 gain is 9-10 dBi.
-          This antenna system is designed for covering a wide range of frequencies with consistency in gain and beamwidth and providing 360 degrees of coverage. 
+          This counter UAV antenna is designed for covering a wide range of frequencies with consistency in gain and beamwidth and providing 360 degrees of coverage. 
           The system is divided into 4 quadrants, each quadrant containing a vertically polarized antenna, covering 433MHz to 6GHz.
         `,
       },
@@ -141,10 +141,10 @@ export class HomeComponent implements AfterViewInit {
       img_num: '2',
       frequency: '400MHz – 7.2GHz',
       description: {
-        p1: `This is a ruggedized steel directive LPD antenna covering from 400MHz up to 7.2GHz.
+        p1: `This is a ruggedized steel directive LPD jammer antenna covering from 400MHz up to 7.2GHz.
         The gain and radiation pattern are quite stable within all the operational antenna’s bandwidth.`,
         p2: `The polarization is linear and by rotating the antenna you can set the polarization to H, V or slant polarization.
-        This antenna system is designed for covering a wide range of frequencies with consistency in gain and beamwidth and providing 360 degrees of coverage. 
+        This counter drone antenna is designed for covering a wide range of frequencies with consistency in gain and beamwidth and providing 360 degrees of coverage. 
         The system is divided into 4 quadrants, each quadrant containing a vertically polarized antenna, covering 400MHz to 7.2GHz.`,
       },
     },
@@ -154,12 +154,12 @@ export class HomeComponent implements AfterViewInit {
       frequency: '400MHz – 6GHz',
       description: {
         p1: `
-          This is a compact microstrip directive LPD antenna covering from 400MHz up to 6GHz.
+          This is a compact microstrip directive LPD drone jammer antenna covering from 400MHz up to 6GHz.
           The gain and radiation pattern are quite stable within all the operational antenna’s bandwidth.`,
         p2: `
           The polarization is linear and by rotating the antenna you can set the polarization to H, V or slant polarization.
-          The antenna is made up using 2 sub-antennas combined with a diplexer, providing a smooth and uniform response.
-          This is a compact microstrip directive Vivaldi antenna covering from 400MHz up to 6GHz with a gain of up to 12 dBi. 
+          The counter UAV antenna is made up using 2 sub-antennas combined with a diplexer, providing a smooth and uniform response.
+          This is a compact microstrip directive Vivaldi counter drone antenna covering from 400MHz up to 6GHz with a gain of up to 12 dBi. 
           The polarization is dual linear and by rotating the antenna you can set the polarization to H&V or slant polarization.`,
       },
     },
@@ -169,7 +169,7 @@ export class HomeComponent implements AfterViewInit {
       frequency: '500MHz – 7.2GHz',
       description: {
         p1: `
-          This is a compact microstrip directive Vivaldi antenna covering from 500MHz up to 7.2GHz with a gain of up to 12 dBi.
+          This is a compact microstrip directive Vivaldi anti drone antenna covering from 500MHz up to 7.2GHz with a gain of up to 12 dBi.
           The polarization is dual linear and by rotating the antenna you can set the polarization to H&V or slant polarization.
           `,
         p2: `
@@ -185,7 +185,7 @@ export class HomeComponent implements AfterViewInit {
       description: {
         p1: `
           We can help you to build your own counter drone antenna. Our team specialize in custom build antennas for different aplications for over 20 years now.
-          We custom everything from the antenna through housing mounting to connectors.
+          We custom everything from the antenna through housing mounting to connectors. With our knowledge your airspace will be secure from counter UAV by anti drone jammer antenna.
           `,
       },
     },
