@@ -250,6 +250,18 @@ section {
     }
     
   }
+
+  section{
+    header {
+      h1, h2 {
+        font-size: 35px !important;
+      }
+    }
+    p span{
+      font-size: 19px !important;
+    }
+  }
+  
 }
 
 @media (max-width: 440px) {
