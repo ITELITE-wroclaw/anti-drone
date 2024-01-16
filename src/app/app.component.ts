@@ -12,11 +12,7 @@ import gsap from "gsap/gsap-core";
   selector: 'app-root',
   templateUrl: './app.component.html',
   
-  styleUrls: ['./app.component.scss', '../../node_modules/bootstrap/scss/bootstrap.scss'],
-  template: `
-  <header>
-    <h1>ANTI DRONE SOLUTIONS</h1>
-  </header>`
+  styleUrls: ['./app.component.scss', '../../node_modules/bootstrap/scss/bootstrap.scss']
 })
 export class AppComponent implements OnInit, AfterViewInit {
 

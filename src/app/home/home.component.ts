@@ -42,11 +42,11 @@ class container {}
           
           <p itemprop="description">
             <span #sliderText class="machine_line machine_line_1">
-              &nbsp;Unlock the full potential of counter UAV antennas, designed for defending against drones by our anti drone defense antennas and 
-              explore the intricate role these advanced antennas play in countering drones by skillfully disrupting their signals. 
+              &nbsp;Equip yourself in counter UAV solution by inlock the full potential of counter UAV antennas, designed for defending against drones by our anti drone antennas and 
+              explore the intricate role these advanced antennas play in countering drones by skillfully jamming their signals. 
               <br>
-              &nbsp;Stay ahead of evolving threats with state-of-the-art counter-UAV, providing a robust drone solution by drone jammer antenna. 
-              Safeguard your airspace with the latest innovations in anti drone disruption, including powerful jammer antennas which provide protection counter drone.
+              &nbsp;Stay ahead of evolving threats with state-of-the-art counter-UAV, providing a robust counter drone solution by drones jammer antenna and remained your airspace safe by the latest anti drone antennas, 
+              these jammer antennas which provide splendid solution in protection counter drone domain.
             </span>
             
           </p>
@@ -60,16 +60,17 @@ class container {}
         <div class="text">
     
           <header>
-            <h2>DRONE JAMMER ANTENNA</h2>
+            <h2>DRONE JAMMER ANTENNAS</h2>
           </header>
           
           <p itemprop="description">
             <span #sliderText class="machine_line machine_line_2">
-              &nbsp;&nbsp;&nbsp;&nbsp;Discover the cutting-edge drone jammer antennas, precisely engineered to protect against UAV intrusions. 
-              Learn how these devices adeptly disrupt drone signals, offering a reliable counter drone solution for safeguarding your airspace from potential threats. 
+              &nbsp;&nbsp;&nbsp;&nbsp;Discover the cutting-edge drone jammer antennas, precisely engineered by our team to protect against UAV intrusions. 
+              Learn how these devices adeptly jamming drone signals, offering a reliable counter drone solution for safeguarding your airspace from potential threats. 
               <br>
               &nbsp;&nbsp;&nbsp;&nbsp;Explore the latest advancements in counter-drone technology, ensuring anti drone solution. 
-              Uncover the effectiveness of jammer antennas, contributing to comprehensive counter UAV protection.
+              Our company has over 20 years experience in antennas manufacturing and performing jamming antennas definitely is not exceed our knowledge and skills, 
+              thanks by our knowledge you can uncover how effectiveness are jammer antennas, which contributing to comprehensive counter UAV protection.
             </span>
             
           </p>
@@ -89,7 +90,7 @@ class container {}
           <p itemprop="description">
             <span #sliderText class="machine_line machine_line_3">
               &nbsp;&nbsp;&nbsp;&nbsp;As drones become more prevalent, the necessity for effective anti drone jammer antennas is paramount. 
-              Dive into the world of drone detection system and uncover comprehensive approaches to protect your airspace and provide counter UAV solution. 
+              Dive into the world of counter UAV system and explore comprehensive approaches to protect your airspace and provide counter UAV solution. 
               <br>
               &nbsp;&nbsp;&nbsp;&nbsp;Explore a diverse range of counter-drone antennas designed to deter and neutralize unmanned aerial threats. 
               Stay secure with innovative anti drone defense, precisely tailored to safeguard your environment and ensure uncompromised counter drone solution.
