@@ -187,8 +187,6 @@ $content_text_margin_top: 30px;
       color: #eeba42;
     }
 
-    
-
     p {
       max-width: 509px;
       color: #000;
@@ -198,13 +196,13 @@ $content_text_margin_top: 30px;
       margin-top: $content_text_margin_top;
       margin-bottom: 0;
     }
-
-    
   }
 
   .image {
     width: 320px;
     height: 440px;
+
+    $img_sizes: 440 478, 440, 478, 430 347, 390 314;
 
     overflow: hidden;
     position: absolute;
@@ -213,6 +211,9 @@ $content_text_margin_top: 30px;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
+  
+    
   }
 
   .particular_details {

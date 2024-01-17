@@ -19,12 +19,20 @@ import { object, string } from 'zod';
 })
 export class DetailsComponent implements AfterViewInit{
 
-  constructor(
-    private changeDetRef: ChangeDetectorRef,
-    private detailsService: DetailsService,
-    private deviceDet: DeviceDetectorService,
-    private renderer: Renderer2
-  ){}
+  @ViewChild("content")
+  content: ElementRef;
+
+  @ViewChild("learnMore")
+  button: ElementRef;
+
+  @ViewChild("cover")
+  cover: ElementRef;
+
+  @ViewChild("folder")
+  folder: ElementRef;
+
+  @ViewChild("img")
+  imgElement: ElementRef;
 
   protected img;
   sizes: number[][] = [[440, 478], [440, 478], [430, 347], [390, 314]];
@@ -40,22 +48,17 @@ export class DetailsComponent implements AfterViewInit{
   protected imagesPath: string = imagesPath + "home/content/"+ this.detectDevice() +"content_";
   protected properties: particularDetails;
 
+  constructor(
+    private changeDetRef: ChangeDetectorRef,
+    private detailsService: DetailsService,
+    private deviceDet: DeviceDetectorService,
+    private renderer: Renderer2
+  ){}
+
   private detectDevice(): string
   {
     return this.deviceDet.isMobile()? "mobile/": "";
   }
-
-  @ViewChild("content")
-  content: ElementRef;
-
-  @ViewChild("learnMore")
-  button: ElementRef;
-
-  @ViewChild("cover")
-  cover: ElementRef;
-
-  @ViewChild("folder")
-  folder: ElementRef;
 
   public ngAfterViewInit(): void {
 

@@ -228,6 +228,7 @@ export class HomeComponent implements AfterViewInit {
             return new Promise(async (resolve) => {
               if (element.hasAttribute('data-id'))
                 return resolve({ target: element });
+              
               resolve(await getProperElement(element.parentElement));
             });
           }
