@@ -29,7 +29,80 @@ class container {}
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  template: `
+  <div class="box">
+      <div class="slider">
+        <img itemprop="image" title="Factory image" srcset="{{img_path}}slider_2_phone.webp 870w, {{img_path}}slider_2.webp 1153w" sizes="(max-width: 880px) 870px, 1153px" alt="Factory stands after lake.">
+  
+        <div class="text">
+    
+          <header>
+            <h1>COUNTER UAV</h1>
+          </header>
+          
+          <p itemprop="description">
+            <span #sliderText class="machine_line machine_line_1">
+              &nbsp;&nbsp;&nbsp;&nbsp;Equip yourself in counter drone solution by unlock the full potential of counter UAV antennas, 
+              designed for defending against drones by our anti drone antennas and 
+              explore the intricate role these advanced antennas play in countering drones by skillfully jamming their signals.
+              Entrust people with rich experience which can manufacture any jammer antennas.
+              Our solutions give a possibilities to stay ahead of evolving threats with state-of-the-art counter-UAV, 
+              providing a robust counter drone solution by drones jammer antenna and remained your airspace safe by the latest anti drone antennas, 
+              these jammer antennas which provide splendid solution in protection counter drone domain.
+            </span>
+            
+          </p>
+        </div>
+        
+      </div>
+  
+      <div class="slider">
+        <img itemprop="image" title="Photo of truck parking from drone perspective" srcset="{{img_path}}slider_1_phone.webp 870w, {{img_path}}slider_1.webp 1153w" sizes="(max-width: 880px) 870px, 1153px" alt="Square with parking trucks.">
+  
+        <div class="text">
+    
+          <header>
+            <h2>DRONE JAMMER ANTENNAS</h2>
+          </header>
+          
+          <p itemprop="description">
+            <span #sliderText class="machine_line machine_line_2">
+              &nbsp;&nbsp;&nbsp;&nbsp;Discover the cutting-edge drone jammer antennas, precisely engineered by our team to protect against UAV intrusions. 
+              Learn how these devices adeptly jamming drone signals, offering a reliable counter drone solution for safeguarding your airspace from potential threats. 
+              Explore the latest advancements in counter-drone technology, ensuring anti drone solution. 
+              Our company has over 20 years experience in antennas manufacturing so performing jamming antennas definitely is not exceed our knowledge and skills, 
+              thanks by our knowledge you can uncover how effectiveness are our jammer antennas, which contributing to comprehensive counter UAV protection.
+            </span>
+            
+          </p>
+        </div>
+        
+      </div>
+
+      <div class="slider">
+        <img itemprop="image" title="Sea photo" srcset="{{img_path}}slider_3_phone.webp 870w, {{img_path}}slider_3.webp 1153w" sizes="(max-width: 880px) 870px, 1153px" alt="Boat is swimming via sea and in the background haven is visible.">
+  
+        <div class="text">
+    
+          <header>
+            <h2>COUNTER DRONE</h2>
+          </header>
+          
+          <p itemprop="description">
+            <span #sliderText class="machine_line machine_line_3">
+              &nbsp;&nbsp;&nbsp;&nbsp;As drones become more prevalent, the necessity for effective anti drone jammer antennas is paramount. 
+              Dive into the world of counter UAV system and explore comprehensive approaches to protect your airspace and provide counter UAV solution. 
+              Explore a diverse range of counter-drone antennas designed to deter and neutralize unmanned aerial threats.
+              If you looking for custom drone jammer antenna let's contact with us and we will prepare apropriate counter drone defense.
+              Stay secure with our innovative anti drone defense, precisely tailored to safeguard your environment and ensure uncompromised counter drone solution.
+            </span>
+            
+          </p>
+        </div>
+        
+      </div>
+    </div>`
 })
 export class HomeComponent implements AfterViewInit {
   constructor(
