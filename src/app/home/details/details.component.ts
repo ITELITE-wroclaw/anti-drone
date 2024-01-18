@@ -15,7 +15,17 @@ import { object, string } from 'zod';
   templateUrl: './details.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['../../details.scss'],
-  template: `<h2 rel="canonical" class="background_header">Antennas</h2>`
+  template: `<div class="description">
+  <h4>Description</h4>
+  <p>
+    <span>
+      {{ details?.value?.description.p1 }}
+    </span>
+    <span>
+      {{ details?.value?.description.p2 }}
+    </span>
+  </p>
+</div>`
 })
 export class DetailsComponent implements AfterViewInit{
 
