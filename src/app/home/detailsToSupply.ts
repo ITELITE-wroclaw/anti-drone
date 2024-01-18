@@ -25,7 +25,7 @@ export const data = {
         The gain and radiation pattern are quite stable within all the operational antenna’s bandwidth.`,
         p2: `The polarization is linear and by rotating the antenna you can set the polarization to H, V or slant polarization.
         This counter drone antenna is designed for covering a wide range of frequencies with consistency in gain and beamwidth and providing 360 degrees of coverage. 
-        The system is divided into 4 quadrants, each quadrant containing a vertically polarized antenna, covering 400MHz to 7.2GHz.`,
+        The system is divided into 4 quadrants, each quadrant containing a vertically polarized jamming antenna, covering 400MHz to 7.2GHz.`,
       },
     },
     2: {
@@ -54,7 +54,7 @@ export const data = {
           `,
         p2: `
           The gain and radiation pattern are quite stable within all the operational antenna’s bandwidth. 
-          The polarization is linear and by rotating the antenna you can set the polarization to H, V or slant polarization. 
+          The polarization is linear and by rotating the jamming antenna you can set the polarization to H, V or slant polarization. 
           `,
       },
     },
@@ -64,8 +64,8 @@ export const data = {
       form: true,
       description: {
         p1: `
-          We can help you to build your own counter drone antenna. Our team specialize in custom build antennas for different aplications for over 20 years now.
-          We custom everything from the antenna through housing mounting to connectors. With our knowledge your airspace will be secure from counter UAV by anti drone jammer antenna.
+          We can help you to build your own counter drone antenna. Our team specialize in build custom antennas for different aplications for over 20 years now.
+          We custom everything from the antenna through housing mounting to connectors. If you damend comprehhensive jamming antenna to resolve uav problem you can entrust our knowledge and your airspace will be secure counter UAV by our anti drone jammer antenna.
           `,
       },
     },

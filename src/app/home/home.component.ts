@@ -170,6 +170,6 @@ export class HomeComponent implements AfterViewInit {
 
   handleResize(event) {
     this.container;
-    if (this.elements) this.homeService.setSizes(this.container._results.map((e) => e.nativeElement));
+    if(this.elements) this.homeService.setSizes(this.container._results.map((e) => e.nativeElement));
   }
 }
