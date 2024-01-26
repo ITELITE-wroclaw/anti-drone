@@ -165,7 +165,25 @@ section {
     height: 1px;
     background-color: #9e9999;
   }
+
 }
+
+.header{
+
+  width: 830px;
+  margin: auto;
+  margin-top: 135px;
+
+  h2{
+    padding: 4px 12px;
+    width: fit-content;
+    font-size: 42px;
+    
+    color: whitesmoke;
+    background-color: #252525;
+  }
+}
+
 
 #counter {
   font-family: Akshar;
