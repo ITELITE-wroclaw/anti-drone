@@ -10,8 +10,8 @@ import gsap from "gsap/gsap-core";
 @Component({
   encapsulation: ViewEncapsulation.None,
   selector: 'app-root',
-  templateUrl: './app.component.html',
   
+  templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss', '../../node_modules/bootstrap/scss/bootstrap.scss']
 })
 export class AppComponent implements OnInit, AfterViewInit {
@@ -34,6 +34,17 @@ export class AppComponent implements OnInit, AfterViewInit {
     gsap.registerPlugin(TextPlugin);
 
     this.router.events.subscribe( (e) => this.renderer.selectRootElement("body", true).scroll({top: 0}) );
+    const url = new URLSearchParams(window.location.href);
+
+    if(window.location.href.includes(window.location.protocol +"//" + window.location.host+"/#/custom"))
+    {
+      this.navigateToProducts("custom");
+      history.replaceState(
+        { page: 1 }, 
+        window.location.protocol +"//" + window.location.host+"/#/custom", 
+        window.location.protocol +"//" + window.location.host
+      );
+    }
   }
 
   navigateToProducts(data: string)

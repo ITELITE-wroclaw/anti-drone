@@ -5,8 +5,8 @@ import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {path: "contact", loadChildren: () => import("./contact/contact.module").then(m => m.ContactModule)},
-  
   {path: "news", loadChildren: () => import("./news/news.module").then(m => m.NewsModule)},
+
   {path: "**", component: HomeComponent}
 ];
 

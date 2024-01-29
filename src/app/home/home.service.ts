@@ -22,7 +22,6 @@ export class HomeService {
     }
 
     window.addEventListener('load', () => {
-      // Your code to run when the entire page is ready
       this.init(this.elements, this.writeLine)
       
       this.router.events.subscribe(params => {
@@ -93,7 +92,6 @@ export class HomeService {
     .delay(.5);
     
     if(this.deviceService.isMobile() || this.deviceService.isTablet()) return;
-
     this.setSizes(elements);
   }
 
