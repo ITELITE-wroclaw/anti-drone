@@ -64,8 +64,10 @@ export const data = {
       form: true,
       description: {
         p1: `
-          If demand UAV protection technology is paramount but you looking untypical C-UAV antenna then we can help you to build your own counter drone antenna. Our team specialize in build custom antennas for different aplications for over 20 years now.
-          We custom everything from the antenna through housing mounting to connectors. If you damend comprehhensive jamming antenna to resolve uav problem you can entrust our knowledge and your airspace will be secure counter UAV by our anti drone jammer antenna.
+          If demand UAV protection technology is paramount but you looking untypical C-UAV antenna then we can help you to build your own counter drone antenna. 
+          Our team specialize in build custom antennas for different aplications for over 20 years now.
+          We custom everything from the antenna through housing mounting to connectors. 
+          If you damend comprehhensive jamming antenna to resolve uav problem you can entrust our knowledge and your airspace will be secure counter UAV by our anti drone jammer antenna.
           `,
       },
     },
