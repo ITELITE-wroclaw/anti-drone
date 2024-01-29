@@ -1,14 +1,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
-        <loc>https://antidroneantennas.net/</loc>
+        <loc>https://antidroneantennas.net/#/</loc>
     </url>
     <url>
-        <loc>https://antidroneantennas.net/products</loc>
+        <loc>https://antidroneantennas.net/#/products</loc>
     </url>
     <url>
-        <loc>https://antidroneantennas.net/contact</loc>
+        <loc>https://antidroneantennas.net/#/contact</loc>
     </url>
     <url>
-        <loc>https://antidroneantennas.net/news</loc>
+        <loc>https://antidroneantennas.net/#/news</loc>
     </url>
 </urlset>
