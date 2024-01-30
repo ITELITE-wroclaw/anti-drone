@@ -2,19 +2,19 @@
 
   <div class="model">
     <h4 itemprop="name">
-      MODEL#
+      Jamming Antenna -
       <span> {{ details?.value?.header }}</span>
     </h4>
   </div>
 
-  <h3 *ngIf="details.value.form">Custom Jammer Antenna</h3>
+  <h3 *ngIf="details.value.form">Custom Jamming Antenna</h3>
 
   <div #folder class="folder-view">
     <div class="text">
       
-      <h5 *ngIf="isType(details.value.frequency, 'string'); else arrFreq">
+      <h4 *ngIf="isType(details.value.frequency, 'string'); else arrFreq">
         {{details.value.frequency}}
-      </h5>
+      </h4>
       <ng-template #arrFreq>
         <p *ngFor="let e of details.value.frequency">
           <span>{{e}}</span>
@@ -27,7 +27,7 @@
         itemprop="image"
         title="Antenna image"
         src="{{ img || imagesPath + details.value.img_num + '.webp' }}"
-        alt="Jammer Antenna photo designed for comprehensive counter-UAV defense."
+        alt="Jammer Antenna photo designed for comprehensive C-UAV defense."
       />
     </div>
 
@@ -38,7 +38,7 @@
         title="Antenna image"
         srcset="./assets/images/home/content/content_5.webp"
         width="320px"
-        alt="Jammer Antenna photo designed for comprehensive counter-UAV defense."
+        alt="Jammer Antenna photo designed for comprehensive counter UAV protection."
       />
       </div>
       
