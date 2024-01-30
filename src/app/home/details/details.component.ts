@@ -15,17 +15,65 @@ import { object, string } from 'zod';
   templateUrl: './details.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['../../details.scss'],
-  template: `<div class="description">
-  <h4>Description</h4>
-  <p>
-    <span>
-      {{ details?.value?.description.p1 }}
-    </span>
-    <span>
-      {{ details?.value?.description.p2 }}
-    </span>
-  </p>
-</div>`
+  template: `
+  <div class="model">
+    <h4 itemprop="name">
+      Jamming Antenna -
+      <span> {{ details?.value?.header }}</span>
+    </h4>
+  </div>
+
+  <h3 *ngIf="details.value.form">Custom Jamming Antenna</h3>
+
+  <div #folder class="folder-view">
+    <div class="text">
+      
+      <h4 *ngIf="isType(details.value.frequency, 'string'); else arrFreq">
+        {{details.value.frequency}}
+      </h4>
+      <ng-template #arrFreq>
+        <p *ngFor="let e of details.value.frequency">
+          <span>{{e}}</span>
+        </p>
+      </ng-template>
+    </div>
+
+    <div *ngIf="!details.value.form; else altImg" class="image">
+      <img
+        itemprop="image"
+        title="Antenna image"
+        src="{{ img || imagesPath + details.value.img_num + '.webp' }}"
+        alt="Jammer Antenna photo designed for comprehensive C-UAV defense."
+      />
+    </div>
+
+    <ng-template #altImg>
+      <div class="alt_image">
+        <img
+        itemprop="image"
+        title="Antenna image"
+        srcset="./assets/images/home/content/content_5.webp"
+        width="320px"
+        alt="Jammer Antenna photo designed for comprehensive counter UAV protection."
+      />
+      </div>
+      
+    </ng-template>
+    
+    <div class="description">
+      <h4>Description</h4>
+      <p>
+        <span [innerHTML]="details?.value?.description.p1"></span>
+        <span [innerHTML]="details?.value?.description.p2"></span>
+      </p>
+    </div>
+
+    <div class="describe">
+      <button #learnMore>Learn More</button>
+    </div>
+
+    <div #cover class="cover"></div>
+  </div>`
 })
 export class DetailsComponent implements AfterViewInit{
 
