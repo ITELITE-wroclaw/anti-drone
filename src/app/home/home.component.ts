@@ -38,14 +38,14 @@ class container {}
         <div class="text">
     
           <header>
-            <h1>COUNTER UAV | DRONE JAMMERS</h1>
+            <h1>COUNTER UAV | DRONE JAMMER</h1>
           </header>
           
           <p itemprop="description">
             <span #sliderText class="machine_line machine_line_1">
-              Equip yourself in against drone solution by unlock the full potential of drone jammers designed for defending <strong>C-UAV</strong> 
-              Our solutions give a possibilities to stay ahead of evolving threats with state-of-the-art protection, 
-              providing a comprehensive <strong>drone jammers</strong> and remained your airspace safe by splendid solution for counter drone protection.
+              Equip yourself in against drone solution by unlock the full potential of drone jammer designed for defending <strong>C-UAV</strong>. 
+              Our solutions give a possibilities to stay ahead of evolving threats with state-of-the-art  protection, 
+              providing a comprehensive <strong>drone jammers</strong> and remained your airspace safe by splendid solution for empower drone jammer system and counter drone protection.
             </span>
             
           </p>
@@ -59,16 +59,16 @@ class container {}
         <div class="text">
     
           <header>
-            <h2>JAMMING ANTENNAS</h2>
+            <h2>JAMMER ANTENNA</h2>
           </header>
           
           <p itemprop="description">
             <span #sliderText class="machine_line machine_line_2">
-              &nbsp;&nbsp;&nbsp;&nbsp;Discover the cutting-edge <strong>jamming antennas</strong>, precisely engineered by our team to protect against UAV intrusions. 
-              Learn how these devices adeptly jamming drone signals, offering a reliable solution for safeguarding your airspace from potential threats. 
+              &nbsp;&nbsp;&nbsp;&nbsp;Discover the cutting-edge <strong>jamming antenna</strong>, precisely engineered by our team to protect against UAV intrusions. 
+              These devices offering a reliable solution for safeguarding your airspace from potential threats. 
               Explore the latest advancements in <strong>counter-drone</strong> technology, ensuring complex protection. 
               Our company has over 20 years experience in antennas manufacturing so performing <strong>drone jammers</strong> definitely is not exceed our knowledge and skills. 
-              Get rid unwanted threat use one of our devices or by manufactured custom antenna.
+              Get rid unwanted threat use one of our devices or by manufactured custom UAV countermeasure.
             </span>
             
           </p>
@@ -97,7 +97,18 @@ class container {}
         </div>
         
       </div>
-    </div>`
+    </div>
+    
+
+    <div #arrow data-id="0" class="slide previous"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="#ffffff" d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg></div>
+    <div #arrow data-id="1" class="slide next"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="#ffffff" d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg></div>
+
+    <span class="line"></span>
+  </section>
+  
+  <header class="header">
+    <h2>Drone Jammers</h2>
+  </header>`
 })
 export class HomeComponent implements AfterViewInit {
   constructor(

@@ -18,7 +18,7 @@ import { object, string } from 'zod';
   template: `
   <div class="model">
     <h4 itemprop="name">
-      Jamming Antenna -
+      Jammer Antenna -
       <span> {{ details?.value?.header }}</span>
     </h4>
   </div>
