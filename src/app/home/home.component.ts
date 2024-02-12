@@ -38,14 +38,14 @@ class container {}
         <div class="text">
     
           <header>
-            <h1>COUNTER UAV | DRONE JAMMER</h1>
+            <h1>UAV COUNTER MEASURES</h1>
           </header>
           
           <p itemprop="description">
             <span #sliderText class="machine_line machine_line_1">
-              Equip yourself in against drone solution by unlock the full potential of drone jammer designed for defending <strong>C-UAV</strong>. 
-              Our solutions give a possibilities to stay ahead of evolving threats with state-of-the-art  protection, 
-              providing a comprehensive <strong>drone jammers</strong> and remained your airspace safe by splendid solution for empower drone jammer system and counter drone protection.
+              &nbsp;&nbsp;&nbsp;&nbsp;Our jammer antennas are the result of more than 20 years of experience in the industry. 
+              As leaders in antenna technology, we are constantly improving our products to ensure the highest quality and reliability of <strong>C-UAV</strong> solution for our customers. 
+              With our extensive experience and advanced knowledge, you can be sure that our jammer antennas will meet your expectations and help you effectively <strong>combat drones</strong>.
             </span>
             
           </p>
@@ -59,16 +59,16 @@ class container {}
         <div class="text">
     
           <header>
-            <h2>JAMMER ANTENNA</h2>
+            <h2>EFFECTIVENESS OF JAMMER ANTENNAS</h2>
           </header>
           
           <p itemprop="description">
             <span #sliderText class="machine_line machine_line_2">
-              &nbsp;&nbsp;&nbsp;&nbsp;Discover the cutting-edge <strong>jamming antenna</strong>, precisely engineered by our team to protect against UAV intrusions. 
-              These devices offering a reliable solution for safeguarding your airspace from potential threats. 
-              Explore the latest advancements in <strong>counter-drone</strong> technology, ensuring complex protection. 
-              Our company has over 20 years experience in antennas manufacturing so performing <strong>drone jammers</strong> definitely is not exceed our knowledge and skills. 
-              Get rid unwanted threat use one of our devices or by manufactured custom UAV countermeasure.
+              &nbsp;&nbsp;&nbsp;&nbsp;Our <strong>jamming antennas</strong> operate over a wide frequency range, covering bands from 400 MHz to 7.2 GHz, 
+              allowing them to effectively neutralize drones in a variety of environments and conditions. 
+              With precise targeting and high signal strength, our jamming antennas effectively disrupt UAV communications, 
+              preventing remote control and neutralizing potential threats. Whether you need protection from unwanted objects in the air over an airport, 
+              a critical infrastructure facility or an important public event, our <strong>drone jammers</strong> are ready for action.
             </span>
             
           </p>
@@ -82,15 +82,14 @@ class container {}
         <div class="text">
     
           <header>
-            <h2>COUNTER DRONE</h2>
+            <h2>DRONE JAMMER OFFER</h2>
           </header>
           
           <p itemprop="description">
             <span #sliderText class="machine_line machine_line_3">
-              &nbsp;&nbsp;&nbsp;&nbsp;As drones become more prevalent, the necessity for effective <strong>drone jammer</strong> is paramount. 
-              Dive into the world of <strong>counter UAV systems</strong> and explore comprehensive approaches to protect your airspace. 
-              Explore a diverse range of counter-drone dome designed to deter and neutralize unmanned aerial threats.
-              Stay secure with our splendid <strong>C-UAV</strong> innovative solution, precisely tailored to safeguard your environment and ensure uncompromised solution.
+              &nbsp;&nbsp;&nbsp;&nbsp;Our range includes a variety of <strong>drone jammers</strong> specifically designed to combat all kinds of threats. 
+              From compact microstrip directional antennas to advanced custom antennas, our solutions are ready to effectively prevent and neutralize any unwanted drone activity. 
+              Our anti-drone antennas offer comprehensive protection in a variety of scenarios and circumstances.
             </span>
             
           </p>
